@@ -1,7 +1,7 @@
 import { Socials } from "../../constants";
 import Image from "next/image";
 import React from "react";
-import { ConnectButton } from "web3uikit";
+import WalletConnect from "../sub/WalletConnect";
 
 const Navbar = () => {
   return (
@@ -26,7 +26,7 @@ const Navbar = () => {
         </a>
 
         <div className="w-[271px] h-full flex flex-row items-center justify-between">
-          <ConnectButton moralisAuth={false} />
+          <WalletConnect />
         </div>
 
         <div className="flex flex-row gap-5">
