@@ -85,9 +85,6 @@ const Timer = () => {
 
   return (
     <div>
-      {/* <span className="text-lg sm:text-xl font-semibold text-white text-center tracking-widest px-2">
-        Act Now, Time is Short
-      </span> */}
       <div className="flex justify-center gap-2 sm:gap-4">
         <CountdownItem value={countDownTime.days} label="Days" />
         <CountdownItem value={countDownTime.hours} label="Hours" />

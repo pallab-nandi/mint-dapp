@@ -30,8 +30,9 @@ export default function WalletConnect() {
   return (
     <div>
       {account ? (
+        
         <button
-          className="text-gray-900 bg-[#0300145e] hover:bg-gray-100 border border-[#7042f861] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700"
+          className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-500 focus:ring-2 focus:outline-none font-medium rounded-md text-sm px-4 py-2 ml-7 flex items-center"
         >
           <svg
             aria-hidden="true"
@@ -471,8 +472,8 @@ export default function WalletConnect() {
               </clipPath>{" "}
             </defs>{" "}
           </svg>
-          {account.slice(0, 6)}...
-          {account.slice(account.length - 4)}
+          {account.slice(0, 7)}...
+          {account.slice(account.length - 6)}
         </button>
       ) : (
         <button
@@ -489,7 +490,7 @@ export default function WalletConnect() {
             }
           }}
           disabled={isWeb3EnableLoading}
-          className="text-gray-900 bg-[#0300145e] hover:bg-gray-100 border border-[#7042f861] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700"
+          className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-500 focus:ring-2 focus:outline-none font-medium rounded-md text-sm px-4 py-2 flex items-center"
         >
           <svg
             aria-hidden="true"

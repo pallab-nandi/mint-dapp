@@ -5,7 +5,7 @@ import WalletConnect from "../sub/WalletConnect";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-[55px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
+    <div className="w-full h-[70px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
       <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
         <a
           href="#about-me"
@@ -25,7 +25,7 @@ const Navbar = () => {
           </span>
         </a>
 
-        <div className="w-[271px] h-full flex flex-row items-center justify-between">
+        <div className="w-[250px] h-full flex flex-row items-center">
           <WalletConnect />
         </div>
 

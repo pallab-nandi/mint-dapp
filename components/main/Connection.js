@@ -25,8 +25,9 @@ const Connection = () => {
           />
         </div>
 
-        <div className="Welcome-box button-primary cursor-pointer px-[15px] py-[4px] z-[20] brder my-[20px] border-[#7042f88b] opacity-[0.9]">
 
+        <div className="cursor-pointer px-[15px] py-[4px] z-[20]  my-[20px]  opacity-[0.9]">
+          {/* wallet check */}
           <form className="flex items-center">
             <label for="voice-search" class="sr-only">Verify</label>
             <div className="relative w-full">
