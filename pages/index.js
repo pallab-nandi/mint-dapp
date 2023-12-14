@@ -4,6 +4,7 @@ import Connection from '../components/main/Connection'
 import StarsCanvas from '../components/main/StarBackground'
 import Navbar from '../components/main/Navbar'
 import Footer from '../components/main/Footer'
+import { ToastContainer } from 'react-toastify';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <Connection />
       <Footer />
+      <ToastContainer />
     </div>
   )
 }
