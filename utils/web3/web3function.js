@@ -1,12 +1,16 @@
 import { toast } from 'react-toastify';
 import { contractAddress, abi } from './contract';
 import { addressProof } from './merkleTree';
+import { useMoralis } from 'react-moralis';
 
 const { ethers } = require('ethers');
+let supplyCount = 26;
+
+const { isWeb3Enabled, account } = useMoralis();
 
 const contractData = async () => {
   if (window.ethereum) {
-    if (window.ethereum.selectedAddress == null) {
+    if (isWeb3Enabled) {
       toast.error('Oops! your wallet is not connected!');
       return [];
     }
@@ -14,10 +18,7 @@ const contractData = async () => {
     const signer = await provider.getSigner();
     const contract = new ethers.Contract(contractAddress, abi, signer);
 
-    const accounts = await window.ethereum.request({ method: "eth_accounts" });
-    const address = accounts[0]
-
-    return [contract, address, provider];
+    return [contract, provider];
   } else {
     toast.error('Metamask is not installed!');
     return [];
@@ -32,7 +33,7 @@ const totalSupply = async () => {
 
     const count = await contract.totalSupply();
     return parseInt(count);
-  }
+  } else return supplyCount;
 }
 
 export const verify = async (accounts) => {
@@ -60,11 +61,10 @@ export const Mint = async () => {
   if (data.length === 0) return;
 
   const contract = data[0];
-  const address = data[1];
-  const proof = await addressProof(address);
+  const proof = await addressProof(account);
 
-  let status = await verify(address);
-  let claimStat = await _claimStatus(address);
+  let status = await verify(account);
+  let claimStat = await _claimStatus(account);
   let supply = await totalSupply();
 
   try {
@@ -93,6 +93,7 @@ export const Mint = async () => {
       .then(() => {
         toast.dismiss();
         toast.success('Transaction Done!');
+        supplyCount++;
         return transactionResponse.hash;
       })
       .catch(err => {
