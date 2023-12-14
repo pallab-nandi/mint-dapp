@@ -1,3 +1,4 @@
+"use client"
 import Head from 'next/head'
 import Hero from '../components/main/Hero'
 import Connection from '../components/main/Connection'
@@ -8,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 
 export default function Home() {
   return (
+    <>
     <div>
       <Head>
         <title>NFT Friends Alpha</title>
@@ -19,7 +21,8 @@ export default function Home() {
       <Hero />
       <Connection />
       <Footer />
-      <ToastContainer />
     </div>
+    <ToastContainer />
+    </>
   )
-}
+};
