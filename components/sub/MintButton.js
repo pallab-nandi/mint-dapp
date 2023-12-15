@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { contractAddress, abi } from '../../utils/web3/contract';
 import { addressProof } from '../../utils/web3/merkleTree';
 import { toast } from "react-toastify"
-import { walletChecker } from "../../utils/web3/walletChecker";
+import { stageChecker } from "../../utils/web3/stageChecker";
 
 const { ethers } = require('ethers');
 
@@ -87,7 +87,7 @@ export default function MintButton(check) {
     let status = await verify(address);
     let claimStat = await _claimStatus(address);
     let supply = await totalSupply();
-    let stageVerify = await walletChecker(address);
+    let stageVerify = await stageChecker(address);
 
     try {
       if (!status) {

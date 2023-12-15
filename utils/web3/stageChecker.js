@@ -1,4 +1,4 @@
-export const walletChecker = async (address) => {
+export const stageChecker = async (address) => {
   let bool = await fetch(`https://silly-rose-fish.cyclic.app/verify/${address}`, {
     method: 'GET'
   })
