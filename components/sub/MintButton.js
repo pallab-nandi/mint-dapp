@@ -210,10 +210,10 @@ export default function MintButton(check) {
   return (
     <button
       onClick={check ? () => stageOneMint() : () => stageTwoMint()}
-      class="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-400 focus:ring-2 focus:outline-none font-medium rounded-md text-xl px-4 py-2 flex items-center"
+      className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-400 focus:ring-2 focus:outline-none font-medium rounded-md text-xl px-4 py-2 flex items-center"
     >
       <svg
-        class="w-4 h-4 me-2 -ms-1 text-[#626890]"
+        className="w-4 h-4 me-2 -ms-1 text-[#626890]"
         aria-hidden="true"
         focusable="false"
         data-prefix="fab"
