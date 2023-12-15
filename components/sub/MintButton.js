@@ -1,23 +1,24 @@
 import React, { useEffect } from "react";
 import { contractAddress, abi } from '../../utils/web3/contract';
 import { addressProof } from '../../utils/web3/merkleTree';
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
+import { walletChecker } from "../../utils/web3/walletChecker";
 
 const { ethers } = require('ethers');
 
 
-export default function MintButton() {
+export default function MintButton(check) {
 
-//   let ethereum;
+  //   let ethereum;
   let supplyCount = 26;
 
-//   useEffect(() => {
-//     ethereum = window.ethereum;
-//   });
+  //   useEffect(() => {
+  //     ethereum = window.ethereum;
+  //   });
 
 
   const contractData = async () => {
-    
+
     if (window.ethereum) {
       if (window.ethereum.selectedAddress == null) {
         toast.error("Oops! your wallet is not connected!");
@@ -48,7 +49,7 @@ export default function MintButton() {
     } else return supplyCount;
   };
 
-   const verify = async (accounts) => {
+  const verify = async (accounts) => {
     const proof = await addressProof(accounts);
     const provider = new ethers.BrowserProvider(window.ethereum);
     const contract = new ethers.Contract(contractAddress, abi, provider);
@@ -58,7 +59,7 @@ export default function MintButton() {
     return status;
   };
 
-   const _claimStatus = async (accounts) => {
+  const _claimStatus = async (accounts) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     // const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, abi, provider);
@@ -67,8 +68,8 @@ export default function MintButton() {
     return status;
   };
 
-   const Mint = async () => {
-    
+  const stageOneMint = async () => {
+
     const data = await contractData();
 
     if (data.length === 0) return;
@@ -82,10 +83,16 @@ export default function MintButton() {
     let status = await verify(address);
     let claimStat = await _claimStatus(address);
     let supply = await totalSupply();
+    let stageVerify = await walletChecker(address);
 
     try {
       if (!status) {
         toast.error("You are not Eligible!");
+        return;
+      }
+
+      if (stageVerify) {
+        toast.error("You are not eligible for Stage One! Wait for next stage!");
         return;
       }
 
@@ -126,11 +133,70 @@ export default function MintButton() {
     }
   };
 
+  const stageTwoMint = async () => {
+
+    const data = await contractData();
+
+    if (data.length === 0) return;
+
+    const contract = data[0];
+
+    const address = data[1];
+
+    const proof = await addressProof(address);
+
+    let status = await verify(address);
+    let claimStat = await _claimStatus(address);
+    let supply = await totalSupply();
+
+    try {
+      if (!status) {
+        toast.error("You are not Eligible!");
+        return;
+      }
+
+      if (claimStat) {
+        toast.warn("You have already claimed!");
+        return;
+      }
+
+      if (supply >= 786) {
+        toast.error("Oops! We are out of stock.");
+        return;
+      }
+
+      toast.loading("Transaction is under process...");
+
+      const transactionResponse = await contract.whitelistMint(proof, {
+        value: ethers.parseEther("0.2"),
+      });
+
+      return transactionResponse
+        .wait(1)
+        .then(() => {
+          toast.dismiss();
+          toast.success("Transaction Done!");
+          supplyCount++;
+          return transactionResponse.hash;
+        })
+        .catch((err) => {
+          toast.dismiss();
+          toast.error("Something goes wrong!");
+          console.log(err);
+          return;
+        });
+    } catch (error) {
+      toast.dismiss();
+      toast.error("Something went wrong.");
+      console.log(error);
+    }
+  };
+
 
 
   return (
     <button
-      onClick={() => Mint()}
+      onClick={check ? () => stageOneMint() : () => stageTwoMint()}
       class="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-400 focus:ring-2 focus:outline-none font-medium rounded-md text-xl px-4 py-2 flex items-center"
     >
       <svg

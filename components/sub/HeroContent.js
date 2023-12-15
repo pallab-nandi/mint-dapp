@@ -48,11 +48,11 @@ const HeroContent = () => {
         >
           <Timer />
         </motion.div>
-        <motion.div 
-        variants={slideInFromLeft(0.5)}
-        className="cursor-pointer"
+        <motion.div
+          variants={slideInFromLeft(0.5)}
+          className="cursor-pointer"
         >
-        <MintButton/>
+          <MintButton />
         </motion.div>
       </div>
 
