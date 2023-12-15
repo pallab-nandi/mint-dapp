@@ -21,6 +21,7 @@ export default function MintButton(check) {
 
     if (window.ethereum) {
       if (window.ethereum.selectedAddress == null) {
+        toast.dismiss();
         toast.error("Oops! your wallet is not connected!");
         return [];
       }
@@ -33,6 +34,7 @@ export default function MintButton(check) {
 
       return [contract, address, provider];
     } else {
+      toast.dismiss();
       toast.error("Metamask is not installed!");
       return [];
     }
@@ -70,6 +72,8 @@ export default function MintButton(check) {
 
   const stageOneMint = async () => {
 
+    toast.loading("Initializing!");
+
     const data = await contractData();
 
     if (data.length === 0) return;
@@ -87,21 +91,25 @@ export default function MintButton(check) {
 
     try {
       if (!status) {
+        toast.dismiss();
         toast.error("You are not Eligible!");
         return;
       }
 
       if (stageVerify) {
+        toast.dismiss();
         toast.error("You are not eligible for Stage One! Wait for next stage!");
         return;
       }
 
       if (claimStat) {
+        toast.dismiss();
         toast.warn("You have already claimed!");
         return;
       }
 
-      if (supply > 786) {
+      if (supply >= 786) {
+        toast.dismiss();
         toast.error("Oops! We are out of stock.");
         return;
       }
@@ -135,6 +143,8 @@ export default function MintButton(check) {
 
   const stageTwoMint = async () => {
 
+    toast.loading("Initializing!")
+
     const data = await contractData();
 
     if (data.length === 0) return;
@@ -151,16 +161,19 @@ export default function MintButton(check) {
 
     try {
       if (!status) {
+        toast.dismiss();
         toast.error("You are not Eligible!");
         return;
       }
 
       if (claimStat) {
+        toast.dismiss();
         toast.warn("You have already claimed!");
         return;
       }
 
       if (supply >= 786) {
+        toast.dismiss();
         toast.error("Oops! We are out of stock.");
         return;
       }

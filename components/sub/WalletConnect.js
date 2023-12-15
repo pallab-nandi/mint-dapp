@@ -30,7 +30,7 @@ export default function WalletConnect() {
   return (
     <div>
       {account ? (
-        
+
         <button
           className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-500 focus:ring-2 focus:outline-none font-medium rounded-md text-sm px-4 py-2 ml-7 flex items-center"
         >
@@ -479,6 +479,11 @@ export default function WalletConnect() {
         <button
           type="button"
           onClick={async () => {
+            if (window.ethereum === undefined) {
+              if (window.confirm('Metamask is not installed! \nClick "OK" to go through https://metamask.io/download/ to install the wallet!')) {
+                window.location.href = "https://metamask.io/download/"
+              }
+            }
             // await walletModal.connect()
             const ret = await enableWeb3()
             if (typeof ret !== "undefined") {
