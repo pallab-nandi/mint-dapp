@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { toast } from 'react-toastify';
 import { contractAddress, abi } from '../../utils/web3/contract';
-import { addressProof } from '../../utils/web3/merkleTree';
-import { stageChecker } from "../../utils/web3/stageChecker";
+import { allowListChecker, stageChecker } from "../../utils/web3/stageChecker";
 
 const { ethers } = require('ethers');
 
@@ -29,16 +28,6 @@ export default function WalletChecker() {
     return isValidAddress;
   };
 
-  const verify = async (accounts) => {
-    const proof = await addressProof(accounts);
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const contract = new ethers.Contract(contractAddress, abi, provider);
-
-    const status = await contract.verifyWhitelist(accounts, proof);
-
-    return status;
-  };
-
   const _claimStatus = async (accounts) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     // const signer = provider.getSigner();
@@ -60,7 +49,7 @@ export default function WalletChecker() {
       return;
     }
 
-    const verifyStatus = await verify(address);
+    const verifyStatus = await allowListChecker(address);
     const stageStatus = await stageChecker(address);
     const claimStatus = await _claimStatus(address);
 
