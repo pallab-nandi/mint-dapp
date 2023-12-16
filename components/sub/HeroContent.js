@@ -7,8 +7,9 @@ import {
 } from "../../utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import Timer from "./timer";
-import MintButton from "./MintButton";
+import TimerLogic from "../main/TimerLogic";
+// import Timer from "./timer";
+// import MintButton from "./MintButton";
 
 const HeroContent = () => {
   return (
@@ -33,6 +34,13 @@ const HeroContent = () => {
         </motion.div>
 
         <motion.div
+          variants={slideInFromLeft(1)}
+          className="flex flex-col gap-6 mt-1 text-6xl font-bold text-white max-w-[550px] w-auto h-auto"
+        >
+          <TimerLogic />
+        </motion.div>
+
+        {/* <motion.div
           variants={slideInFromTop}
           className="Welcome-box cursor-pointer py-[10px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
         >
@@ -53,7 +61,7 @@ const HeroContent = () => {
           className="cursor-pointer"
         >
           <MintButton />
-        </motion.div>
+        </motion.div> */}
       </div>
 
       <motion.div
