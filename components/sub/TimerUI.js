@@ -81,7 +81,7 @@ const TimerUI = ({
 
       {isMintButtonVisible && isVisible && (
         <motion.div variants={slideInFromRight(0.8)} className="mt-5">
-          <MintButton timerName={timerName} />
+          <MintButton timerName={timerName}   check={timerName== "Stage 1" ? true : false}/>
         </motion.div>
       )}
 

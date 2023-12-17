@@ -1,28 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { contractAddress, abi } from '../../utils/web3/contract';
-import { addressProof } from '../../utils/web3/merkleTree';
-import { toast } from "react-toastify"
+import { contractAddress, abi } from "../../utils/web3/contract";
+import { addressProof } from "../../utils/web3/merkleTree";
+import { toast } from "react-toastify";
 import { stageChecker } from "../../utils/web3/stageChecker";
 import PopUp from "./PopUp";
 
-const { ethers } = require('ethers');
+const { ethers } = require("ethers");
 
-
-export default function MintButton(check) {
-
+export default function MintButton({ check }) {
   //   let ethereum;
   let supplyCount = 26;
 
-const [getTx, setTx] = useState(false);
-const [popUp, setPop] = useState(false);
+  const [getTx, setTx] = useState(false);
+  const [popUp, setPop] = useState(false);
 
   //   useEffect(() => {
   //     ethereum = window.ethereum;
   //   });
 
-
   const contractData = async () => {
-
     if (window.ethereum) {
       if (window.ethereum.selectedAddress == null) {
         toast.dismiss();
@@ -33,8 +29,10 @@ const [popUp, setPop] = useState(false);
       const signer = await provider.getSigner();
       const contract = new ethers.Contract(contractAddress, abi, signer);
 
-      const accounts = await window.ethereum.request({ method: "eth_accounts" });
-      const address = accounts[0]
+      const accounts = await window.ethereum.request({
+        method: "eth_accounts",
+      });
+      const address = accounts[0];
 
       return [contract, address, provider];
     } else {
@@ -75,7 +73,7 @@ const [popUp, setPop] = useState(false);
   };
 
   const stageOneMint = async () => {
-
+    
     toast.loading("Initializing!");
 
     const data = await contractData();
@@ -131,7 +129,7 @@ const [popUp, setPop] = useState(false);
           toast.success("Transaction Done!");
           supplyCount++;
           setTx(transactionResponse.hash);
-          setPop(true)
+          setPop(true);
           return transactionResponse.hash;
         })
         .catch((err) => {
@@ -148,8 +146,8 @@ const [popUp, setPop] = useState(false);
   };
 
   const stageTwoMint = async () => {
-
-    toast.loading("Initializing!")
+    
+    toast.loading("Initializing!");
 
     const data = await contractData();
 
@@ -197,7 +195,7 @@ const [popUp, setPop] = useState(false);
           toast.success("Transaction Done!");
           supplyCount++;
           setTx(transactionResponse.hash);
-          setPop(true)
+          setPop(true);
           return transactionResponse.hash;
         })
         .catch((err) => {
@@ -213,32 +211,30 @@ const [popUp, setPop] = useState(false);
     }
   };
 
-
-
   return (
     <>
-    <button
-      onClick={true ? () => stageOneMint() : () => stageTwoMint()}
-      className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-400 focus:ring-2 focus:outline-none font-medium rounded-md text-xl px-4 py-2 flex items-center"
-    >
-      <svg
-        className="w-4 h-4 me-2 -ms-1 text-[#626890]"
-        aria-hidden="true"
-        focusable="false"
-        data-prefix="fab"
-        data-icon="ethereum"
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
+      <button
+        onClick={check ? () => stageOneMint() : () => stageTwoMint()}
+        className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-400 focus:ring-2 focus:outline-none font-medium rounded-md text-xl px-4 py-2 flex items-center"
       >
-        <path
-          fill="currentColor"
-          d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z"
-        ></path>
-      </svg>
-      Mint Now
-    </button>
-    {popUp && <PopUp tx={getTx}/>}
+        <svg
+          className="w-4 h-4 me-2 -ms-1 text-[#626890]"
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fab"
+          data-icon="ethereum"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+        >
+          <path
+            fill="currentColor"
+            d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z"
+          ></path>
+        </svg>
+        Mint Now
+      </button>
+      {popUp && <PopUp tx={getTx} />}
     </>
   );
 }

@@ -17,15 +17,15 @@ const TimerLogic = () => {
   const timers = [
     {
       name: "Mint Start",
-      date: new Date("2023-12-16T22:38:00"),
+      date: new Date("2023-12-17T19:38:00"),
     },
     {
       name: "Stage 1",
-      date: new Date("2023-12-17T23:59:00"),
+      date: new Date("2023-12-17T19:38:30"),
     },
     {
       name: "Stage 2",
-      date: new Date("2023-12-17T23:59:00"),
+      date: new Date("2023-12-17T19:38:59"),
     },
   ];
 
