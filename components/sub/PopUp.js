@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Confetti from "react-confetti";
 
-export default function PopUp(tx) {
+export default function PopUp({ tx }) {
   const [open, setOpen] = useState(true);
 
   const cancelButtonRef = useRef(null);

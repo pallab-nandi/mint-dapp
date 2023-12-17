@@ -8,15 +8,10 @@ import PopUp from "./PopUp";
 const { ethers } = require("ethers");
 
 export default function MintButton({ check }) {
-  //   let ethereum;
   let supplyCount = 26;
 
   const [getTx, setTx] = useState(false);
   const [popUp, setPop] = useState(false);
-
-  //   useEffect(() => {
-  //     ethereum = window.ethereum;
-  //   });
 
   const contractData = async () => {
     if (window.ethereum) {
@@ -73,7 +68,7 @@ export default function MintButton({ check }) {
   };
 
   const stageOneMint = async () => {
-    
+
     toast.loading("Initializing!");
 
     const data = await contractData();
@@ -116,6 +111,7 @@ export default function MintButton({ check }) {
         return;
       }
 
+      toast.dismiss();
       toast.loading("Transaction is under process...");
 
       const transactionResponse = await contract.whitelistMint(proof, {
@@ -128,8 +124,8 @@ export default function MintButton({ check }) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
-          setTx(transactionResponse.hash);
-          setPop(true);
+          setTx(transactionResponse["hash"]);
+          setPop(true)
           return transactionResponse.hash;
         })
         .catch((err) => {
@@ -146,7 +142,7 @@ export default function MintButton({ check }) {
   };
 
   const stageTwoMint = async () => {
-    
+
     toast.loading("Initializing!");
 
     const data = await contractData();
@@ -182,6 +178,7 @@ export default function MintButton({ check }) {
         return;
       }
 
+      toast.dismiss();
       toast.loading("Transaction is under process...");
 
       const transactionResponse = await contract.whitelistMint(proof, {
@@ -194,8 +191,8 @@ export default function MintButton({ check }) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
-          setTx(transactionResponse.hash);
-          setPop(true);
+          setTx(transactionResponse["hash"]);
+          setPop(true)
           return transactionResponse.hash;
         })
         .catch((err) => {
