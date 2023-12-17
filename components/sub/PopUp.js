@@ -1,6 +1,9 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Confetti from "react-confetti";
+import { SocialIcon } from 'react-social-icons/component'
+import 'react-social-icons/x'
+import 'react-social-icons/discord'
 
 export default function PopUp({ tx }) {
   const [open, setOpen] = useState(true);
@@ -60,19 +63,22 @@ export default function PopUp({ tx }) {
                         </span>
                       </h2>
                       <a
-                        className="button cursor-pointer mt-3 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white"
+                        className="button cursor-pointer mt-3 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
                         href="https://shorturl.at/kopF7"
                       >
-                        Share on X
+                        
+                        Share on 
+                        <SocialIcon network="x" style ={{height:35, width:35}}/>
                       </a>
                       <a
-                        className="button cursor-pointer mt-2 mb-2 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white"
+                        className="button cursor-pointer mt-2 mb-2 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
                         href="https://discord.com"
                       >
-                        Claim Role on Discord
+                        Claim Role on &nbsp;
+                        <SocialIcon network="discord" style ={{height:35, width:35}}/>
                       </a>
                       <a
-                        className="sm:text-large mt-5 underline text-gray-400"
+                        className="sm:text-large mt-5 underline text-gray-900"
                         href={`https://sepolia.etherscan.io/tx/${tx}`}
                       >
                         View on Etherscan

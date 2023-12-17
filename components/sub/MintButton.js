@@ -124,7 +124,7 @@ export default function MintButton({ check }) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
-          setTx(transactionResponse["hash"]);
+          setTx(transactionResponse.hash);
           setPop(true)
           return transactionResponse.hash;
         })
@@ -191,7 +191,7 @@ export default function MintButton({ check }) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
-          setTx(transactionResponse["hash"]);
+          setTx(transactionResponse.hash);
           setPop(true)
           return transactionResponse.hash;
         })
@@ -231,6 +231,9 @@ export default function MintButton({ check }) {
         </svg>
         Mint Now
       </button>
+      <span className="text-[20px] text-white font-semibold uppercase ">
+        Mint Price : 0.1 ETH &nbsp;&nbsp; Total Supply : {supplyCount}/786
+      </span>
       {popUp && <PopUp tx={getTx} />}
     </>
   );

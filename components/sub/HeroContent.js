@@ -3,14 +3,9 @@ import { motion } from "framer-motion";
 import {
   slideInFromLeft,
   slideInFromRight,
-  slideInFromTop,
 } from "../../utils/motion";
-import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import TimerLogic from "../main/TimerLogic";
-// import Timer from "./timer";
-// import MintButton from "./MintButton";
-
 const HeroContent = () => {
   return (
     <motion.div
@@ -39,29 +34,6 @@ const HeroContent = () => {
         >
           <TimerLogic />
         </motion.div>
-
-        {/* <motion.div
-          variants={slideInFromTop}
-          className="Welcome-box cursor-pointer py-[10px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
-        >
-          <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[20px] ml-2 mr-5 hover:scale-105">
-            Lorem, ipsum dolor sit amet consectetur. Libero!
-          </h1>
-        </motion.div>
-
-        <motion.div
-          variants={slideInFromLeft(1)}
-          className="flex flex-col gap-6 mt-1 text-6xl font-bold text-white max-w-[550px] w-auto h-auto"
-        >
-          <Timer />
-        </motion.div>
-        <motion.div
-          variants={slideInFromLeft(0.5)}
-          className="cursor-pointer"
-        >
-          <MintButton />
-        </motion.div> */}
       </div>
 
       <motion.div
@@ -73,7 +45,6 @@ const HeroContent = () => {
           alt="work icons"
           height={600}
           width={600}
-          // className="hover:animate-spin-slow "
           className="hover:scale-105"
         />
       </motion.div>
