@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { contractAddress, abi } from '../../utils/web3/contract';
 import { addressProof } from '../../utils/web3/merkleTree';
 import { toast } from "react-toastify"
 import { stageChecker } from "../../utils/web3/stageChecker";
+import PopUp from "./PopUp";
 
 const { ethers } = require('ethers');
 
@@ -11,6 +12,9 @@ export default function MintButton(check) {
 
   //   let ethereum;
   let supplyCount = 26;
+
+const [getTx, setTx] = useState(false);
+const [popUp, setPop] = useState(false);
 
   //   useEffect(() => {
   //     ethereum = window.ethereum;
@@ -126,6 +130,8 @@ export default function MintButton(check) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
+          setTx(transactionResponse.hash);
+          setPop(true)
           return transactionResponse.hash;
         })
         .catch((err) => {
@@ -190,6 +196,8 @@ export default function MintButton(check) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
+          setTx(transactionResponse.hash);
+          setPop(true)
           return transactionResponse.hash;
         })
         .catch((err) => {
@@ -208,8 +216,9 @@ export default function MintButton(check) {
 
 
   return (
+    <>
     <button
-      onClick={check ? () => stageOneMint() : () => stageTwoMint()}
+      onClick={true ? () => stageOneMint() : () => stageTwoMint()}
       className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-400 focus:ring-2 focus:outline-none font-medium rounded-md text-xl px-4 py-2 flex items-center"
     >
       <svg
@@ -229,5 +238,7 @@ export default function MintButton(check) {
       </svg>
       Mint Now
     </button>
+    {popUp && <PopUp tx={getTx}/>}
+    </>
   );
 }
