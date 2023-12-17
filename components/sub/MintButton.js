@@ -124,16 +124,8 @@ export default function MintButton({ check }) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
-<<<<<<< HEAD
-          setTx(transactionResponse["hash"]);
-          setPop(true);
-||||||| f5c80c6
-          setTx(transactionResponse.hash);
-          setPop(true);
-=======
           setTx(transactionResponse["hash"]);
           setPop(true)
->>>>>>> web3
           return transactionResponse.hash;
         })
         .catch((err) => {
@@ -199,16 +191,8 @@ export default function MintButton({ check }) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
-<<<<<<< HEAD
-          setTx(transactionResponse["hash"]);
-          setPop(true);
-||||||| f5c80c6
-          setTx(transactionResponse.hash);
-          setPop(true);
-=======
           setTx(transactionResponse["hash"]);
           setPop(true)
->>>>>>> web3
           return transactionResponse.hash;
         })
         .catch((err) => {
