@@ -33,7 +33,7 @@ export default function WalletChecker() {
     // const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, abi, provider);
 
-    const status = await contract.checkMintStatus(accounts);
+    const status = await contract.checkStatus(accounts);
     return status;
   };
 

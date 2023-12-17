@@ -11,7 +11,7 @@ export default function MintButton({ check }) {
   //   let ethereum;
   let supplyCount = 26;
 
-  const [getTx, setTx] = useState(false);
+  const [getTx, setTx] = useState('');
   const [popUp, setPop] = useState(false);
 
   //   useEffect(() => {
@@ -68,12 +68,12 @@ export default function MintButton({ check }) {
     // const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, abi, provider);
 
-    const status = await contract.checkMintStatus(accounts);
+    const status = await contract.checkStatus(accounts);
     return status;
   };
 
   const stageOneMint = async () => {
-    
+
     toast.loading("Initializing!");
 
     const data = await contractData();
@@ -98,7 +98,7 @@ export default function MintButton({ check }) {
         return;
       }
 
-      if (stageVerify) {
+      if (!stageVerify) {
         toast.dismiss();
         toast.error("You are not eligible for Stage One! Wait for next stage!");
         return;
@@ -116,6 +116,7 @@ export default function MintButton({ check }) {
         return;
       }
 
+      toast.dismiss();
       toast.loading("Transaction is under process...");
 
       const transactionResponse = await contract.whitelistMint(proof, {
@@ -128,7 +129,7 @@ export default function MintButton({ check }) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
-          setTx(transactionResponse.hash);
+          setTx(transactionResponse["hash"]);
           setPop(true);
           return transactionResponse.hash;
         })
@@ -146,7 +147,7 @@ export default function MintButton({ check }) {
   };
 
   const stageTwoMint = async () => {
-    
+
     toast.loading("Initializing!");
 
     const data = await contractData();
@@ -182,6 +183,7 @@ export default function MintButton({ check }) {
         return;
       }
 
+      toast.dismiss();
       toast.loading("Transaction is under process...");
 
       const transactionResponse = await contract.whitelistMint(proof, {
@@ -194,7 +196,7 @@ export default function MintButton({ check }) {
           toast.dismiss();
           toast.success("Transaction Done!");
           supplyCount++;
-          setTx(transactionResponse.hash);
+          setTx(transactionResponse["hash"]);
           setPop(true);
           return transactionResponse.hash;
         })

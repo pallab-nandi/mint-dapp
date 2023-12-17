@@ -5,5 +5,6 @@ export const addressProof = async (address) => {
     .then(res => res.json())
     .then(value => value.data)
     .catch(err => console.log(err));
+  console.log(proof);
   return proof;
 }
