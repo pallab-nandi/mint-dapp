@@ -105,7 +105,7 @@ export default function MintButton({ check }) {
         return;
       }
 
-      if (supply >= 786) {
+      if (supply >= 726) {
         toast.dismiss();
         toast.error("Oops! We are out of stock.");
         return;
