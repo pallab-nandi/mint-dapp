@@ -8,7 +8,7 @@ import PopUp from "./PopUp";
 const { ethers } = require("ethers");
 
 export default function MintButton({ check }) {
-  let supplyCount = 4;
+  let supplyCount = 1;
 
   const [getTx, setTx] = useState('');
   const [popUp, setPop] = useState(false);

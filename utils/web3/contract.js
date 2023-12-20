@@ -1,4 +1,4 @@
-const contractAddress = "0xcbAEC5321f4bf9AA69D0f796d3BB5af09b18aDEB";
+const contractAddress = "0xC6bc35a19A7cd73A5D127Ba0923C51748b25E7f1";
 
 const abi = [
   {
@@ -136,6 +136,19 @@ const abi = [
     ],
     "name": "Unpaused",
     "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "FCFS_SUPPLY",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [],
@@ -490,6 +503,13 @@ const abi = [
       }
     ],
     "name": "setMintEvent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "setTokenTransferApproved",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
