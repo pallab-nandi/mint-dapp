@@ -57,6 +57,12 @@ export default function WalletChecker() {
 
     const validWalletAddress = validateAddress(address);
 
+    if (!window.ethereum) {
+      toast.dismiss();
+      toast.error("Metamask Provider is absent!");
+      return;
+    }
+
     if (!validWalletAddress) {
       toast.dismiss();
       toast.error(
@@ -123,9 +129,9 @@ export default function WalletChecker() {
           Verify
         </button>
       </div>
-      {stageOne && <StageOne value={handlePopUp}/>}
-      {stageTwo && <StageTwo value={handlePopUp}/>}
-      {claimed && <Claimed value={handlePopUp}/>}
+      {stageOne && <StageOne value={handlePopUp} />}
+      {stageTwo && <StageTwo value={handlePopUp} />}
+      {claimed && <Claimed value={handlePopUp} />}
       {ineligible && <Ineligible value={handlePopUp} />}
     </>
   );
