@@ -8,7 +8,7 @@ import PopUp from "./PopUp";
 const { ethers } = require("ethers");
 
 export default function MintButton({ check }) {
-  let supplyCount = 26;
+  let supplyCount = 4;
 
   const [getTx, setTx] = useState('');
   const [popUp, setPop] = useState(false);
@@ -232,7 +232,7 @@ export default function MintButton({ check }) {
         Mint Now
       </button>
       <span className="text-[20px] text-white font-semibold uppercase ">
-        Mint Price : 0.1 ETH &nbsp;&nbsp; Total Supply : {supplyCount}/786
+        Mint Price : 0.2 ETH &nbsp;&nbsp; Total Supply : {supplyCount}/786
       </span>
       {popUp && <PopUp tx={getTx} />}
     </>
