@@ -8,10 +8,10 @@ import PopUp from "./PopUp";
 const { ethers } = require("ethers");
 
 export default function MintButton({ check }) {
-  let supplyCount = 1;
 
   const [getTx, setTx] = useState("");
   const [popUp, setPop] = useState(false);
+  const [supplyCount, setSupplyCount] = useState(5);
 
   const contractData = async () => {
     if (window.ethereum) {
@@ -118,11 +118,12 @@ export default function MintButton({ check }) {
       });
 
       return transactionResponse
-        .wait(1)
+        .wait(2)
         .then(() => {
           toast.dismiss();
           toast.success("Transaction Done!");
-          supplyCount++;
+          let count = supplyCount + 1;
+          setSupplyCount(count);
           setTx(transactionResponse.hash);
           setPop(true);
           return transactionResponse.hash;
@@ -188,7 +189,8 @@ export default function MintButton({ check }) {
         .then(() => {
           toast.dismiss();
           toast.success("Transaction Done!");
-          supplyCount++;
+          let count = supplyCount + 1;
+          setSupplyCount(count);
           setTx(transactionResponse.hash);
           setPop(true);
           return transactionResponse.hash;
