@@ -21,7 +21,7 @@ const TimerLogic = () => {
     },
     {
       name: "Stage 1",
-      date: new Date("2023-12-20T23:59:59"),
+      date: new Date("2023-12-21T23:59:59"),
     },
     {
       name: "Stage 2",

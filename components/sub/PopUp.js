@@ -63,20 +63,14 @@ export default function PopUp({ tx }) {
                         </span>
                       </h2>
                       <a
-                        className="button cursor-pointer mt-3 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
+                        className="button cursor-pointer mt-3 mb-3 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
                         href="https://shorturl.at/kopF7"
                       >
                         
                         Share on 
                         <SocialIcon network="x" style ={{height:35, width:35}}/>
                       </a>
-                      <a
-                        className="button cursor-pointer mt-2 mb-2 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
-                        href="https://discord.com"
-                      >
-                        Claim Role on &nbsp;
-                        <SocialIcon network="discord" style ={{height:35, width:35}}/>
-                      </a>
+                    
                       <a
                         className="sm:text-large mt-5 underline text-gray-900"
                         href={`https://sepolia.etherscan.io/tx/${tx}`}

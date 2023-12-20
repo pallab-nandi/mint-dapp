@@ -10,7 +10,7 @@ const { ethers } = require("ethers");
 export default function MintButton({ check }) {
   let supplyCount = 1;
 
-  const [getTx, setTx] = useState('');
+  const [getTx, setTx] = useState("");
   const [popUp, setPop] = useState(false);
 
   const contractData = async () => {
@@ -68,7 +68,6 @@ export default function MintButton({ check }) {
   };
 
   const stageOneMint = async () => {
-
     toast.loading("Initializing!");
 
     const data = await contractData();
@@ -125,7 +124,7 @@ export default function MintButton({ check }) {
           toast.success("Transaction Done!");
           supplyCount++;
           setTx(transactionResponse.hash);
-          setPop(true)
+          setPop(true);
           return transactionResponse.hash;
         })
         .catch((err) => {
@@ -142,7 +141,6 @@ export default function MintButton({ check }) {
   };
 
   const stageTwoMint = async () => {
-
     toast.loading("Initializing!");
 
     const data = await contractData();
@@ -192,7 +190,7 @@ export default function MintButton({ check }) {
           toast.success("Transaction Done!");
           supplyCount++;
           setTx(transactionResponse.hash);
-          setPop(true)
+          setPop(true);
           return transactionResponse.hash;
         })
         .catch((err) => {
