@@ -6,12 +6,13 @@ import {
 } from "../../utils/motion";
 import Image from "next/image";
 import TimerLogic from "../main/TimerLogic";
+import ScrollDown from "./ScrollDown";
 const HeroContent = () => {
   return (
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center pt-20 px-20 mt-40 h-full w-full z-[20]"
+      className="flex flex-row items-center justify-center pt-20 px-20 mt-40 pb-20 h-full w-full z-[20]"
     >
       <div className="h-full w-full flex flex-col gap-5 justify-center text-start">
         <motion.div
@@ -34,6 +35,7 @@ const HeroContent = () => {
         >
           <TimerLogic />
         </motion.div>
+        <ScrollDown/>
       </div>
 
       <motion.div
