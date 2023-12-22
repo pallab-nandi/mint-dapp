@@ -1,6 +1,7 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
+import Confetti from "react-confetti";
 
 export default function Claimed({value}) {
   const [open, setOpen] = useState(true);
@@ -63,6 +64,7 @@ export default function Claimed({value}) {
                     </div>
                   </div>
                 </div>
+                <Confetti/>
                 <div className="bg-gray-700 bg-opacity-60 px-4 pb-3 sm:flex sm:flex-row-reverse sm:px-6">
                  
                   <button
