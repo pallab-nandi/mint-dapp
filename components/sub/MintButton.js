@@ -231,7 +231,7 @@ export default function MintButton({ check }) {
         </svg>
         Mint Now
       </button>
-      <span className="text-[20px] text-white font-semibold uppercase ">
+      <span className="text-xs lg:text-xl text-white font-semibold uppercase ">
         Mint Price : 0.2 ETH &nbsp;&nbsp; Total Supply : {supplyCount}/786
       </span>
       {popUp && <PopUp tx={getTx} />}

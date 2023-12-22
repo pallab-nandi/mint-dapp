@@ -7,7 +7,7 @@ export default function ScrollDown() {
 
   const handleScrollButton = () => {
     const scrollY = window.scrollY;
-    setIsVisible(scrollY < 400);
+    setIsVisible(scrollY < 200);
   }
 
   const scrollToBottom = () => {
@@ -26,7 +26,7 @@ export default function ScrollDown() {
 
   return (
     <button
-      className={`fixed bottom-20 left-30 text-white  py-2 rounded-full  focus:outline-none focus:shadow-outline-blue  ${!isVisible ? 'hidden' : ''}`}
+      className={`fixed bottom-16 left-56 md:bottom-40 md:left-24  text-white rounded-full focus:outline-none focus:shadow-outline-blue  ${!isVisible ? 'hidden' : ''}`}
       onClick={scrollToBottom}
     >
         <Image

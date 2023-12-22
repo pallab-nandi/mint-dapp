@@ -32,7 +32,7 @@ export default function WalletConnect() {
       {account ? (
 
         <button
-          className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-500 focus:ring-2 focus:outline-none font-medium rounded-md text-sm px-4 py-2 ml-7 flex items-center"
+          className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-500 focus:ring-2 focus:outline-none font-medium rounded-md text-sm px-4 py-2  flex items-center"
         >
           <svg
             aria-hidden="true"
