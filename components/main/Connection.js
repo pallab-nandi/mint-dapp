@@ -23,11 +23,9 @@ const Connection = () => {
           />
         </div>
 
-
         <div className="cursor-pointer px-[15px] py-[4px] z-[20]  my-[20px]  opacity-[0.9]">
           {/* wallet check */}
           <WalletChecker />
-
         </div>
       </div>
 
@@ -39,8 +37,9 @@ const Connection = () => {
           playsInline
           preload="false"
           className="w-full h-auto"
-          src="/encryption.webm/"
-        />
+        >
+          <source src="/encryption.webm" type="video/webm" />
+        </video>
       </div>
     </div>
   );
