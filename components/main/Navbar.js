@@ -5,7 +5,7 @@ import WalletConnect from "../sub/WalletConnect";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-[70px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] pl-2 pr-2 backdrop-blur-md z-50 ">
+    <div className="w-full h-[70px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] px-0 md:px-20 backdrop-blur-md z-50 ">
       <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
         <a
           href="#"

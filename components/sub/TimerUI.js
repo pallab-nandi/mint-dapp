@@ -37,10 +37,10 @@ const TimerUI = ({
       {isVisible && timerName === "Mint Start" && (
         <motion.div
           variants={slideInFromTop}
-          className="Welcome-box cursor-pointer py-[10px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
+          className="Welcome-box cursor-pointer py-[10px] px-[20px] border border-[#7042f88b] opacity-[0.9] my-16 sm:my-5"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[20px] ml-2 mr-5 hover:scale-105">
+          <h1 className="Welcome-text text-[30px] md:text-[20px] ml-3 mr-6  hover:scale-105">
             Mint starts in!
           </h1>
         </motion.div>
@@ -52,7 +52,7 @@ const TimerUI = ({
           className="Welcome-box cursor-pointer py-[10px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[20px] ml-2 mr-5 py-[5px] hover:scale-105">
+          <h1 className="Welcome-text text-[20px] ml-3 mr-6 py-[5px] hover:scale-105">
             Stage 1 count down!
           </h1>
         </motion.div>
@@ -64,14 +64,14 @@ const TimerUI = ({
           className="Welcome-box cursor-pointer py-[10px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[20px] ml-2 mr-5 py-[5px] hover:scale-105">
+          <h1 className="Welcome-text text-[20px] ml-3 mr-6  py-[5px] hover:scale-105">
             Stage 2 count down!
           </h1>
         </motion.div>
       )}
 
       {isVisible && (
-        <div className="flex justify-center gap-2 sm:gap-4 mt-5">
+        <div className="flex justify-center gap-2 sm:gap-4 mt-5 mb-5 sm:mt-5">
           <CountdownItem value={countDownTime.days} label="Days" />
           <CountdownItem value={countDownTime.hours} label="Hours" />
           <CountdownItem value={countDownTime.minutes} label="Minutes" />
@@ -80,8 +80,8 @@ const TimerUI = ({
       )}
 
       {isMintButtonVisible && isVisible && (
-        <motion.div variants={slideInFromRight(0.8)} className="mt-5">
-          <MintButton timerName={timerName}   check={timerName== "Stage 1" ? true : false}/>
+        <motion.div variants={slideInFromRight(0.8)} >
+          <MintButton  timerName={timerName}   check={timerName== "Stage 1" ? true : false}/>
         </motion.div>
       )}
 

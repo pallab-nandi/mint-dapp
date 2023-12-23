@@ -12,12 +12,12 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-12  my-64  h-full w-full z-[20]"
+      className="flex flex-row items-center justify-center px-20 md:px-12  mt-60 mb-40  lg:mt-64 lg:mb-48 h-full w-full z-[20]"
     >
-      <div className="md:w-1/2 flex flex-col justify-center md:items-start text-start md:text-start md:pl-8 lg:pl-16">
+      <div className="md:w-1/2 flex flex-col justify-center md:items-start text-center md:text-start md:pl-8 lg:pl-16">
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white max-w-[600px] w-full"
+          className="mb-6 text-6xl sm:text-6xl lg:text-6xl font-bold text-white max-w-[600px] w-full"
         >
           <span className="hover:scale-105">
             NFT
@@ -45,9 +45,9 @@ const HeroContent = () => {
         <Image
           src="/mainIconsdark.svg"
           alt="work icons"
-          height={500}
-          width={500}
-          className="hover:scale-105"
+          height={600}
+          width={600}
+          className="hover:scale-105 max-h-30 max-w-30 md:max-h-full md:max-w-full py-10 "
         />
       </motion.div>
     </motion.div>

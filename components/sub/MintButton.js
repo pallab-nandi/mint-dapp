@@ -8,7 +8,6 @@ import PopUp from "./PopUp";
 const { ethers } = require("ethers");
 
 export default function MintButton({ check }) {
-
   const [getTx, setTx] = useState("");
   const [popUp, setPop] = useState(false);
   const [supplyCount, setSupplyCount] = useState(5);
@@ -209,32 +208,34 @@ export default function MintButton({ check }) {
   };
 
   return (
-    <>
-      <button
-        onClick={check ? () => stageOneMint() : () => stageTwoMint()}
-        className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-400 focus:ring-2 focus:outline-none font-medium rounded-md text-xl px-4 py-2 flex items-center"
-      >
-        <svg
-          className="w-4 h-4 me-2 -ms-1 text-[#626890]"
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="fab"
-          data-icon="ethereum"
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 320 512"
+    <div className="mt-6">
+      <div className="flex justify-center md:justify-start">
+        <button
+          onClick={check ? () => stageOneMint() : () => stageTwoMint()}
+          className="text-gray-100 background-opacity-75 hover:bg-gray-900 border border-gray-400 focus:ring-2 focus:outline-none font-medium rounded-md text-xl px-4 py-2 flex items-center"
         >
-          <path
-            fill="currentColor"
-            d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z"
-          ></path>
-        </svg>
-        Mint Now
-      </button>
+          <svg
+            className="w-4 h-4 me-2 -ms-1 text-[#626890]"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fab"
+            data-icon="ethereum"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z"
+            ></path>
+          </svg>
+          Mint Now
+        </button>
+      </div>
       <span className="text-xs lg:text-xl text-white font-semibold uppercase ">
         Mint Price : 0.2 ETH &nbsp;&nbsp; Total Supply : {supplyCount}/786
       </span>
       {popUp && <PopUp tx={getTx} />}
-    </>
+    </div>
   );
 }

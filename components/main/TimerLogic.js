@@ -21,11 +21,11 @@ const TimerLogic = () => {
     },
     {
       name: "Stage 1",
-      date: new Date("2023-12-20T11:59:59"),
+      date: new Date("2023-12-30T11:59:59"),
     },
     {
       name: "Stage 2",
-      date: new Date("2023-12-26T23:59:59"),
+      date: new Date("2023-12-20T23:59:59"),
     },
   ];
 
@@ -100,7 +100,7 @@ const TimerLogic = () => {
         <button
           onClick={redirectToOpenSea}
         >
-          <h1 className="Welcome-text text-[20px] ml-2 mr-5 py-[5px] hover:scale-105">
+          <h1 className="Welcome-text text-[30px] mx-20 py-[110px] md:text-[25px] md:mx-0 md:pt-[50px] md:pb-[10px] hover:scale-105">
             View On opensea!
           </h1>
         </button>
