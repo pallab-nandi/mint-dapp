@@ -31,7 +31,7 @@ export default function PopUp({ tx }) {
             <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />
           </Transition.Child>
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -42,14 +42,14 @@ export default function PopUp({ tx }) {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  <div className="bg-white px-4 pb-4 pt-5 sm:p-6 ">
+                  <div className="bg-white px-4 pb-4 pt-5 sm:p-4 ">
                     <video
                       autoPlay
                       muted
                       loop
                       alt="Trainer"
                       src="https://storage.googleapis.com/mintpass/mintpass.mp4"
-                      className="h-32 w-full object-cover md:h-full"
+                      className="h-80 w-full object-cover md:h-full"
                     />
 
                     <div className="p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
