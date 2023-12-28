@@ -716,4 +716,35 @@ const abi = [
   }
 ]
 
-module.exports = { contractAddress, abi }
+const stageOne = [
+  '0x4ff7cf7fa9a0ff9a54881eddc2a34002bfbef3cf',
+  '0xbef18c080b30d18f8a22a09e5dc0a67f7eaac27e',
+  '0xd25ef5144e645834dc4fbcd938e15b6938969fc4',
+  '0x7855cba1e4fd7a9985b915233f389d1ebc33ff6e',
+  '0x82614820a370c8ebb48793c9ae4add901804d23b',
+  '0x4bae264366ea986e40f7cf45cb92211c5fbc6a14',
+  '0x139a131383304f546fdb9310b506b2f68e254490',
+  '0xfccff681e5d3e5489e1108609f60b32ab5516aba',
+  '0x26a2c8fea4d6b0ae4075f175d2e80f55fa3217e1',
+  '0x75d6490b307c96c5302dda92a4bc8933a7b69610',
+  '0xfc0e7c64364ba7f81ca8eba7830d589b29be33ca',
+  '0x347b2f17608900467e7072e11ada199f4aaae26f',
+  '0x37317bf9b1bcdb86fa7c0bc670c25a878d64f004'
+]
+
+const stageTwo = [
+  '0xc8b599a0e0d3d4da8f1029982699884a88958189',
+  '0x289bc9756ed8b59bffb2020f95518dee4496fd4f',
+  '0x52bf0ae5230ef537b81d09deea4a8a285a6249cf',
+  '0x99e09ea9bda952cd664a41413d3c47a2662efcd9',
+  '0x451395b2b95afe2c75536c3dbccb8122d798febc',
+  '0x9907ac6f075ce5c428cd4e99df505624d28a1a14',
+  '0xf1ec5972b311ec2d19d58bdb54888e6c4ac3cd18',
+  '0xbddbdbbe6976b2ddeaac7da340c50fbec9815bce',
+  '0xb332ddb195e69155da699ca8b17a8bb49c10e4ed',
+  '0xf3b0c5a496cc24ddc2e3db0afe4f43b9b787566f',
+  '0x1f8da6700699c192a3efa3478d6d764061a8218d',
+  '0xb2ceab7491c0931b4ac1cb05b7637893e9c29dcd'
+]
+
+module.exports = { contractAddress, abi, stageOne, stageTwo }
