@@ -12,6 +12,10 @@ export default function MintButton({ check }) {
   const [popUp, setPop] = useState(false);
   const [supplyCount, setSupplyCount] = useState(5);
 
+  const handlePopUp = (bool) => {
+    setPop(bool);
+  }
+
   const contractData = async () => {
     if (window.ethereum) {
       if (window.ethereum.selectedAddress == null) {
@@ -235,7 +239,7 @@ export default function MintButton({ check }) {
       <span className="text-xs lg:text-xl text-white font-semibold uppercase ">
         Mint Price : 0.2 ETH &nbsp;&nbsp; Total Supply : {supplyCount}/786
       </span>
-      {popUp && <PopUp tx={getTx} />}
+      {popUp && <PopUp tx={getTx} value={handlePopUp} />}
     </div>
   );
 }
