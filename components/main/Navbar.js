@@ -25,11 +25,11 @@ const Navbar = () => {
           </span> */}
         </a>
 
-        <div className=" h-full flex flex-row items-center justify-center">
+        <div className=" h-full flex flex-row items-center pl-0 md:pl-9 justify-center">
           <WalletConnect />
         </div>
 
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row gap-4 px-[10px] md:px-[0px]">
           <AudioPlayer />
           {Socials.map((social, index) => (
             <a key={index} href={social.link} target="_blank">

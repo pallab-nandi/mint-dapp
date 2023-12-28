@@ -935,7 +935,7 @@ export default function WalletConnect() {
               </clipPath>{" "}
             </defs>{" "}
           </svg>
-          Connect with Metamask
+          Connect Wallet!
         </button>
       )}
     </div>
