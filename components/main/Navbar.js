@@ -2,6 +2,7 @@ import { Socials } from "../../constants";
 import Image from "next/image";
 import React from "react";
 import WalletConnect from "../sub/WalletConnect";
+import AudioPlayer from "../sub/AudioPlayer";
 
 const Navbar = () => {
   return (
@@ -29,6 +30,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-row gap-4">
+          <AudioPlayer />
           {Socials.map((social, index) => (
             <a key={index} href={social.link} target="_blank">
               <Image
