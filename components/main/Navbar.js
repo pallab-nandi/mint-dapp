@@ -8,10 +8,7 @@ const Navbar = () => {
   return (
     <div className="w-full h-[70px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] px-0 md:px-20 backdrop-blur-md z-50 ">
       <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
-        <a
-          href="#"
-          className="h-auto w-auto flex flex-row items-center"
-        >
+        <a href="#" className="h-auto w-auto flex flex-row items-center">
           <Image
             src="/NavLogo.png"
             alt="logo"
@@ -25,11 +22,11 @@ const Navbar = () => {
           </span> */}
         </a>
 
-        <div className=" h-full flex flex-row items-center pl-0 md:pl-9 justify-center">
+        <div className=" h-full flex flex-row items-center pl-0 md:pl-12 justify-center">
           <WalletConnect />
         </div>
 
-        <div className="flex flex-row gap-4 px-[10px] md:px-[0px]">
+        <div className="flex flex-row items-center gap-4 px-[10px] md:px-[0px]">
           <AudioPlayer />
           {Socials.map((social, index) => (
             <a key={index} href={social.link} target="_blank">

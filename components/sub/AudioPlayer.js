@@ -128,9 +128,9 @@ const AudioPlayer = () => {
         <Image
           src={isPlaying ? pause.src : play.src}
           alt={isPlaying ? pause.name : play.name}
-          width={30}
-          height={30}
-          className=""
+          width={35}
+          height={35}
+          className="pt-2"
         />
       </button>
     </div>
