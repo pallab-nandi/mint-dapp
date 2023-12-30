@@ -111,10 +111,17 @@ const AudioPlayer = () => {
 
 
 
+  // const { play, pause } = {
+  //   play: { name: "play", src: "/play.svg" },
+  //   pause: { name: "pause", src: "/pause.svg" },
+  // };
+
+
   const { play, pause } = {
-    play: { name: "play", src: "/play.svg" },
-    pause: { name: "pause", src: "/pause.svg" },
+    play: { name: "play", src: "/play.png" },
+    pause: { name: "pause", src: "/pause.png" },
   };
+
 
   const togglePlayPause = () => {
     if (sound) {
