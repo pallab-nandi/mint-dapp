@@ -1,4 +1,4 @@
-const contractAddress = "0xC6bc35a19A7cd73A5D127Ba0923C51748b25E7f1";
+const contractAddress = "0x4790214fb3E9798e329A81A7AFBa1Ffb13E2e651";
 
 const abi = [
   {
@@ -16,6 +16,17 @@ const abi = [
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      }
+    ],
+    "name": "OperatorNotAllowed",
+    "type": "error"
   },
   {
     "anonymous": false,
@@ -247,12 +258,44 @@ const abi = [
         "type": "address"
       }
     ],
+    "name": "checkBlacklist",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
+    ],
     "name": "checkStatus",
     "outputs": [
       {
         "internalType": "bool",
         "name": "",
         "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "creatorRoyaltyBps",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "",
+        "type": "uint96"
       }
     ],
     "stateMutability": "view",
@@ -393,10 +436,52 @@ const abi = [
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_walletlist",
+        "type": "address[]"
+      }
+    ],
+    "name": "removeBlacklist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "renounceOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "salePrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "royaltyInfo",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -453,6 +538,19 @@ const abi = [
   {
     "inputs": [
       {
+        "internalType": "address[]",
+        "name": "_walletlist",
+        "type": "address[]"
+      }
+    ],
+    "name": "setAllowlistApprove",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address",
         "name": "operator",
         "type": "address"
@@ -477,6 +575,19 @@ const abi = [
       }
     ],
     "name": "setBaseURI",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_walletlist",
+        "type": "address[]"
+      }
+    ],
+    "name": "setBlacklist",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -668,6 +779,19 @@ const abi = [
     "inputs": [
       {
         "internalType": "address",
+        "name": "_vaultAddress",
+        "type": "address"
+      }
+    ],
+    "name": "vault",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "_address",
         "type": "address"
       },
@@ -729,7 +853,11 @@ const stageOne = [
   '0x75d6490b307c96c5302dda92a4bc8933a7b69610',
   '0xfc0e7c64364ba7f81ca8eba7830d589b29be33ca',
   '0x347b2f17608900467e7072e11ada199f4aaae26f',
-  '0x37317bf9b1bcdb86fa7c0bc670c25a878d64f004'
+  '0x37317bf9b1bcdb86fa7c0bc670c25a878d64f004',
+  '0x421c1c34f7c70ab33f0aac59fe01abe14c582c71',
+  '0xa4d46880bcf0a3c3f4ec8bcaf2e21db1e35cac58',
+  '0x9c251fa009175d5b7ab36807c1ade98bf5c94baf',
+  '0xae841bbb8a19edf8b8940f881ca4c7786d73e0eb'
 ]
 
 const stageTwo = [
