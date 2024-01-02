@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { contractAddress, abi } from "../../utils/web3/contract";
+// import { contractAddress, abi } from "../../utils/web3/contract";
 import { allowListChecker, stageChecker } from "../../utils/web3/stageChecker";
-import StageOne from "../status/StageOne";
-import StageTwo from "../status/StageTwo";
-import Claimed from "../status/Claimed";
-import Ineligible from "../status/Ineligible";
+// import StageOne from "../status/StageOne";
+// import StageTwo from "../status/StageTwo";
+// import Claimed from "../status/Claimed";
+// import Ineligible from "../status/Ineligible";
 
 const { ethers } = require("ethers");
 
 export default function WalletChecker() {
   const [inputValue, setInputValue] = useState("");
 
-  const [stageOne, setStageOne] = useState(false);
-  const [stageTwo, setStageTwo] = useState(false);
-  const [claimed, setClaimed] = useState(false);
-  const [ineligible, setIneligible] = useState(false);
+  // const [stageOne, setStageOne] = useState(false);
+  // const [stageTwo, setStageTwo] = useState(false);
+  // const [claimed, setClaimed] = useState(false);
+  // const [ineligible, setIneligible] = useState(false);
 
   const handleSubmit = () => {
     walletCheck(inputValue);
@@ -25,12 +25,12 @@ export default function WalletChecker() {
     setInputValue(e.target.value);
   };
 
-  const handlePopUp = (bool) => {
-    setIneligible(bool);
-    setStageOne(bool);
-    setStageTwo(bool);
-    setClaimed(bool);
-  };
+  // const handlePopUp = (bool) => {
+  //   setIneligible(bool);
+  //   setStageOne(bool);
+  //   setStageTwo(bool);
+  //   setClaimed(bool);
+  // };
 
   const validateAddress = (accounts) => {
     // Ethereum address regular expression pattern
@@ -43,14 +43,14 @@ export default function WalletChecker() {
     return isValidAddress;
   };
 
-  const _claimStatus = async (accounts) => {
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    // const signer = provider.getSigner();
-    const contract = new ethers.Contract(contractAddress, abi, provider);
+  // const _claimStatus = async (accounts) => {
+  //   const provider = new ethers.BrowserProvider(window.ethereum);
+  //   // const signer = provider.getSigner();
+  //   const contract = new ethers.Contract(contractAddress, abi, provider);
 
-    const status = await contract.checkStatus(accounts);
-    return status;
-  };
+  //   const status = await contract.checkStatus(accounts);
+  //   return status;
+  // };
 
   async function walletCheck(address) {
     toast.loading("Checking Initialized...");
@@ -73,20 +73,20 @@ export default function WalletChecker() {
 
     const verifyStatus = await allowListChecker(address);
     const stageStatus = await stageChecker(address);
-    const claimStatus = await _claimStatus(address);
+    // const claimStatus = await _claimStatus(address);
 
     if (!verifyStatus) {
       toast.dismiss();
-      setIneligible(true);
-    } else if (claimStatus) {
+      // setIneligible(true);
+      toast.error("You are Not Eligible")
+    }  else if (stageStatus) {
       toast.dismiss();
-      setClaimed(true);
-    } else if (stageStatus) {
-      toast.dismiss();
-      setStageOne(true);
+      toast.success("You are Eligible stage 1")
+      // setStageOne(true);
     } else {
       toast.dismiss();
-      setStageTwo(true);
+      toast.success("You are Eligible stage 2")
+      // setStageTwo(true);
     }
   }
 
@@ -129,10 +129,10 @@ export default function WalletChecker() {
           Verify
         </button>
       </div>
-      {stageOne && <StageOne value={handlePopUp} />}
+      {/* {stageOne && <StageOne value={handlePopUp} />}
       {stageTwo && <StageTwo value={handlePopUp} />}
       {claimed && <Claimed value={handlePopUp} />}
-      {ineligible && <Ineligible value={handlePopUp} />}
+      {ineligible && <Ineligible value={handlePopUp} />} */}
     </>
   );
 }
