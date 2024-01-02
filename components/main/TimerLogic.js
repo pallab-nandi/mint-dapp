@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import TimerUI from "../sub/TimerUI";
+import { SocialIcon } from "react-social-icons/component";
+import "react-social-icons/opensea";
 
 const TimerLogic = () => {
   const [currentTimer, setCurrentTimer] = useState(0);
@@ -25,7 +27,7 @@ const TimerLogic = () => {
     },
     {
       name: "Stage 2",
-      date: new Date("2024-01-05T23:59:59"),
+      date: new Date("2023-01-15T23:59:59"),
     },
   ];
 
@@ -97,13 +99,25 @@ const TimerLogic = () => {
   return (
     <div>
       {isCountdownCompleted && (
-        <button
-          onClick={redirectToOpenSea}
-        >
-          <h1 className="Welcome-text text-[30px] mx-20 py-[110px] md:text-[25px] md:mx-0 md:pt-[50px] md:pb-[10px] hover:scale-105">
-            View On opensea!
-          </h1>
-        </button>
+        <div className="py-[45px] md:py-[20px]">
+          <span>
+            <h1 className="Welcome-text text-[50px] md:text-[55px] mx-20 md:mx-0 md:pt-[50px] md:pb-[10px] hover:scale-105 cursor-pointer">
+              Sold out!
+            </h1>
+          </span>
+          <button
+            onClick={redirectToOpenSea}
+            className="button cursor-pointer mt-1 mb-3 inline-block w-full
+            bg-white py-2 text-lg font-bold uppercase tracking-widest
+            text-black rounded-lg hover:scale-105"
+          >
+            View on&nbsp;&nbsp;
+            <SocialIcon
+              network="opensea"
+              style={{ height: 40, width: 40 }}
+            />
+          </button>
+        </div>
       )}
 
       <TimerUI
