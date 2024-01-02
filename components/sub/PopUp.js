@@ -1,11 +1,13 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Confetti from "react-confetti";
-import { SocialIcon } from 'react-social-icons/component'
-import 'react-social-icons/x'
-import 'react-social-icons/discord'
+import { SocialIcon } from "react-social-icons/component";
+import "react-social-icons/x";
+import "react-social-icons/discord";
+import "react-social-icons/opensea";
+import {contractAddress} from "../../utils/web3/contract"
 
-export default function PopUp({ tx, value }) {
+export default function PopUp({ tx, value, id }) {
   const [open, setOpen] = useState(true);
 
   const cancelButtonRef = useRef(null);
@@ -13,7 +15,7 @@ export default function PopUp({ tx, value }) {
   const handleClick = () => {
     value(false);
     setOpen(false);
-  }
+  };
 
   return (
     <div>
@@ -68,12 +70,25 @@ export default function PopUp({ tx, value }) {
                         </span>
                       </h2>
                       <a
-                        className="button cursor-pointer mt-3 mb-3 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
+                        className="button cursor-pointer mt-3 mb-1 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
                         href="https://shorturl.at/kopF7"
                       >
-
                         Share on
-                        <SocialIcon network="x" style={{ height: 35, width: 35 }} />
+                        <SocialIcon
+                          network="x"
+                          style={{ height: 32.5, width: 32.5 }}
+                        />
+                      </a>
+
+                      <a
+                        className="button cursor-pointer mt-1 mb-3 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
+                      href={`https://testnets.opensea.io/assets/sepolia/${contractAddress}/${id - 1}`}
+                      >
+                        View on&nbsp;&nbsp;
+                        <SocialIcon
+                          network="opensea"
+                          style={{ height: 32.5, width: 32.5 }}
+                        />
                       </a>
 
                       <a

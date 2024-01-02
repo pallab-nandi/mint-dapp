@@ -255,7 +255,7 @@ const { ethers } = require("ethers");
 
 export default function MintButton({ check }) {
   const [getTx, setTx] = useState("");
-  const [popUp, setPop] = useState(false);
+  const [popUp, setPop] = useState(true);
   const [supplyCount, setSupplyCount] = useState(5);
   const [totalSupply, setTotalSupply] = useState(supplyCount);
 
@@ -486,7 +486,7 @@ export default function MintButton({ check }) {
       <span className="text-xs lg:text-xl text-white font-semibold uppercase ">
         Mint Price : 0.2 ETH &nbsp;&nbsp; Total Supply : {totalSupply}/786
       </span>
-      {popUp && <PopUp tx={getTx} value={handlePopUp} />}
+      {popUp && <PopUp tx={getTx} value={handlePopUp} id={totalSupply} />}
     </div>
   );
 }
