@@ -25,7 +25,18 @@ export default function MintButton({ check }) {
           toast.error("Oops! your wallet is not connected!");
           return [];
         }
+
         const provider = new ethers.BrowserProvider(window.ethereum);
+        const balance = await provider.getBalance(window.ethereum.selectedAddress);
+        const balanceInEth = ethers.formatEther(balance);
+        console.log(balanceInEth)
+
+        if (balanceInEth < 0.2) {
+          toast.dismiss();
+          toast.warning("Not enough fund for Mint!");
+          return [];
+        }
+
         const signer = await provider.getSigner();
         const contract = new ethers.Contract(contractAddress, abi, signer);
 
@@ -113,7 +124,7 @@ export default function MintButton({ check }) {
       if (!stageVerify) {
         toast.dismiss();
         toast.error(
-          "You are not eligible for 🎉 Fruitlist Phase! Wait for the next phase!"
+          "You are not eligible for Fruitlist! Wait for the next phase!"
         );
         return;
       }
