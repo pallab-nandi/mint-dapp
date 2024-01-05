@@ -1,4 +1,4 @@
-const contractAddress = "0x4790214fb3E9798e329A81A7AFBa1Ffb13E2e651";
+const contractAddress = "0xC4Fd941b47Cb69b9e77a8D22641B7C1d95dC2836";
 
 const abi = [
   {
@@ -150,7 +150,7 @@ const abi = [
   },
   {
     "inputs": [],
-    "name": "FCFS_SUPPLY",
+    "name": "FRIENDLIST_SUPPLY",
     "outputs": [
       {
         "internalType": "uint256",
@@ -781,6 +781,11 @@ const abi = [
         "internalType": "address",
         "name": "_vaultAddress",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
     "name": "vault",
@@ -854,10 +859,17 @@ const stageOne = [
   '0xfc0e7c64364ba7f81ca8eba7830d589b29be33ca',
   '0x347b2f17608900467e7072e11ada199f4aaae26f',
   '0x37317bf9b1bcdb86fa7c0bc670c25a878d64f004',
+  '0xab8483f64d9c6d1ecf9b849ae677dd3315835cb2',
+  '0x4b20993bc481177ec7e8f571cecae8a9e22c02db',
+  '0x78731d3ca6b7e34ac0f824c42a7cc18a495cabab',
   '0x421c1c34f7c70ab33f0aac59fe01abe14c582c71',
   '0xa4d46880bcf0a3c3f4ec8bcaf2e21db1e35cac58',
   '0x9c251fa009175d5b7ab36807c1ade98bf5c94baf',
-  '0xae841bbb8a19edf8b8940f881ca4c7786d73e0eb'
+  '0xae841bbb8a19edf8b8940f881ca4c7786d73e0eb',
+  '0xbddbdbbe6976b2ddeaac7da340c50fbec9815bce',
+  '0x22f2c8b14e2859f82455b22dba32ef9b1db2eebf',
+  '0xb332ddb195e69155da699ca8b17a8bb49c10e4ed',
+  '0xf3b0c5a496cc24ddc2e3db0afe4f43b9b787566f',
 ]
 
 const stageTwo = [
@@ -868,11 +880,9 @@ const stageTwo = [
   '0x451395b2b95afe2c75536c3dbccb8122d798febc',
   '0x9907ac6f075ce5c428cd4e99df505624d28a1a14',
   '0xf1ec5972b311ec2d19d58bdb54888e6c4ac3cd18',
-  '0xbddbdbbe6976b2ddeaac7da340c50fbec9815bce',
-  '0xb332ddb195e69155da699ca8b17a8bb49c10e4ed',
-  '0xf3b0c5a496cc24ddc2e3db0afe4f43b9b787566f',
   '0x1f8da6700699c192a3efa3478d6d764061a8218d',
-  '0xb2ceab7491c0931b4ac1cb05b7637893e9c29dcd'
+  '0xb2ceab7491c0931b4ac1cb05b7637893e9c29dcd',
+  '0x2c2dc62c19604381706c8f40a300b8f5204d5a36'
 ]
 
 module.exports = { contractAddress, abi, stageOne, stageTwo }
