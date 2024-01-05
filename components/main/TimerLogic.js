@@ -19,15 +19,15 @@ const TimerLogic = () => {
   const timers = [
     {
       name: "Mint Start",
-      date: new Date("2024-01-05T16:10:20"),
+      date: new Date("2024-01-04T16:10:20"),
     },
     {
       name: "Stage 1",
-      date: new Date("2024-01-15T11:59:59"),
+      date: new Date("2024-01-04T11:59:59"),
     },
     {
       name: "Stage 2",
-      date: new Date("2024-02-15T23:59:59"),
+      date: new Date("2024-01-04T23:59:59"),
     },
   ];
 
@@ -101,7 +101,7 @@ const TimerLogic = () => {
       {isCountdownCompleted && (
         <div className="py-[45px] md:py-[20px]">
           <span>
-            <h1 className="Welcome-text text-[50px] md:text-[55px] mx-20 md:mx-0 md:pt-[50px] md:pb-[10px] hover:scale-105 cursor-pointer">
+            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500  text-[50px] md:text-[55px] mx-20 md:mx-20 md:pt-[50px] md:pb-[10px] hover:scale-105 cursor-pointer">
               Sold out!
             </h1>
           </span>
