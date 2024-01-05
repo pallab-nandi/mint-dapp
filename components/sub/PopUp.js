@@ -55,7 +55,7 @@ export default function PopUp({ tx, value, id }) {
                       muted
                       loop
                       alt="Trainer"
-                      src="https://storage.googleapis.com/mintpass/mintpass.mp4"
+                      src="/NFA_v1.mp4"
                       className="h-80 w-full object-cover md:h-full"
                     />
 
