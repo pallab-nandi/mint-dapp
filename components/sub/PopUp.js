@@ -71,7 +71,7 @@ export default function PopUp({ tx, value, id }) {
                       </h2>
                       <a
                         className="button cursor-pointer mt-3 mb-1 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
-                        href="https://shorturl.at/jzBT0"
+                        href="https://shorturl.at/xzLN3"
                         target="_blank"
                       >
                         Share on
