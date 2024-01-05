@@ -72,6 +72,7 @@ export default function PopUp({ tx, value, id }) {
                       <a
                         className="button cursor-pointer mt-3 mb-1 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
                         href="https://shorturl.at/jzBT0"
+                        target="_blank"
                       >
                         Share on
                         <SocialIcon
@@ -83,6 +84,7 @@ export default function PopUp({ tx, value, id }) {
                       <a
                         className="button cursor-pointer mt-1 mb-3 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
                         href={`https://testnets.opensea.io/assets/sepolia/${contractAddress}/${id - 1}`}
+                        target="_blank"
                       >
                         View on&nbsp;&nbsp;
                         <SocialIcon
@@ -94,6 +96,7 @@ export default function PopUp({ tx, value, id }) {
                       <a
                         className="sm:text-large mt-5 underline text-gray-900"
                         href={`https://sepolia.etherscan.io/tx/${tx}`}
+                        target="_blank"
                       >
                         View on Etherscan
                       </a>
