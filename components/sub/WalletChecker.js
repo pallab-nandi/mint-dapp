@@ -78,14 +78,14 @@ export default function WalletChecker() {
     if (!verifyStatus) {
       toast.dismiss();
       // setIneligible(true);
-      toast.error("You are Not Eligible")
-    }  else if (stageStatus) {
+      toast.error("😦 Your wallet is not eligible for any phase!")
+    } else if (stageStatus) {
       toast.dismiss();
-      toast.success("You are Eligible stage 1")
+      toast.success("You are 🎉 Fruitlisted!")
       // setStageOne(true);
     } else {
       toast.dismiss();
-      toast.success("You are Eligible stage 2")
+      toast.success("You are 🎉 Friendlisted!")
       // setStageTwo(true);
     }
   }
@@ -96,19 +96,13 @@ export default function WalletChecker() {
         <div className="relative w-full">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
-              className="w-4 h-4 text-gray-500 dark:text-gray-400"
+              className="w-4 h-4 text-white dark:text-white"
               aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
               fill="none"
-              viewBox="0 0 21 21"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M11.15 5.6h.01m3.337 1.913h.01m-6.979 0h.01M5.541 11h.01M15 15h2.706a1.957 1.957 0 0 0 1.883-1.325A9 9 0 1 0 2.043 11.89 9.1 9.1 0 0 0 7.2 19.1a8.62 8.62 0 0 0 3.769.9A2.013 2.013 0 0 0 13 18v-.857A2.034 2.034 0 0 1 15 15Z"
-              />
+              <path d="M16.5008 14.1502H16.5098M19 4.00098H6.2C5.0799 4.00098 4.51984 4.00098 4.09202 4.21896C3.71569 4.41071 3.40973 4.71667 3.21799 5.093C3 5.52082 3 6.08087 3 7.20098V16.801C3 17.9211 3 18.4811 3.21799 18.909C3.40973 19.2853 3.71569 19.5912 4.09202 19.783C4.51984 20.001 5.07989 20.001 6.2 20.001H17.8C18.9201 20.001 19.4802 20.001 19.908 19.783C20.2843 19.5912 20.5903 19.2853 20.782 18.909C21 18.4811 21 17.9211 21 16.801V11.201C21 10.0809 21 9.52082 20.782 9.093C20.5903 8.71667 20.2843 8.41071 19.908 8.21896C19.4802 8.00098 18.9201 8.00098 17.8 8.00098H7M16.9508 14.1502C16.9508 14.3987 16.7493 14.6002 16.5008 14.6002C16.2523 14.6002 16.0508 14.3987 16.0508 14.1502C16.0508 13.9017 16.2523 13.7002 16.5008 13.7002C16.7493 13.7002 16.9508 13.9017 16.9508 14.1502Z" stroke="#000000" strokeWidth="2" strokeLinecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <input

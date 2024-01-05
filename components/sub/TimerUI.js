@@ -41,7 +41,7 @@ const TimerUI = ({
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[30px] md:text-[20px] ml-3 mr-6  hover:scale-105">
-            Mint starts in!
+            Mint starts in
           </h1>
         </motion.div>
       )}
@@ -53,7 +53,7 @@ const TimerUI = ({
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[20px] ml-3 mr-6 py-[5px] hover:scale-105">
-            Stage 1 count down!
+            Fruitlist Phase Ends in
           </h1>
         </motion.div>
       )}
@@ -65,7 +65,7 @@ const TimerUI = ({
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[20px] ml-3 mr-6  py-[5px] hover:scale-105">
-            Stage 2 count down!
+            Friendlist Phase Ends in
           </h1>
         </motion.div>
       )}
@@ -81,7 +81,7 @@ const TimerUI = ({
 
       {isMintButtonVisible && isVisible && (
         <motion.div variants={slideInFromRight(0.8)} >
-          <MintButton  timerName={timerName}   check={timerName== "Stage 1" ? true : false}/>
+          <MintButton timerName={timerName} check={timerName == "Stage 1" ? true : false} />
         </motion.div>
       )}
 

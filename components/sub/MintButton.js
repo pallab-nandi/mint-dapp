@@ -20,6 +20,11 @@ export default function MintButton({ check }) {
   const contractData = async () => {
     if (window.ethereum) {
       try {
+        if (window.ethereum.selectedAddress == null) {
+          toast.dismiss();
+          toast.error("Oops! your wallet is not connected!");
+          return [];
+        }
         const provider = new ethers.BrowserProvider(window.ethereum);
         const signer = await provider.getSigner();
         const contract = new ethers.Contract(contractAddress, abi, signer);
@@ -32,7 +37,7 @@ export default function MintButton({ check }) {
         return [contract, address, provider];
       } catch (error) {
         toast.dismiss();
-        toast.error("Error fetching contract data:", error);
+        console.error("Error fetching contract data:", error);
         return [];
       }
     } else {
@@ -82,7 +87,7 @@ export default function MintButton({ check }) {
   };
 
   const stageOneMint = async () => {
-    toast.loading("Initializing!");
+    toast.loading("Initializing...");
 
     const data = await contractData();
 
@@ -101,21 +106,21 @@ export default function MintButton({ check }) {
     try {
       if (!status) {
         toast.dismiss();
-        toast.error("You are not Eligible!");
+        toast.error("😦 Your wallet is not eligible for any phase!");
         return;
       }
 
       if (!stageVerify) {
         toast.dismiss();
         toast.error(
-          "You are not eligible for Stage One! Wait for the next stage!"
+          "You are not eligible for 🎉 Fruitlist Phase! Wait for the next phase!"
         );
         return;
       }
 
       if (claimStat) {
         toast.dismiss();
-        toast.warn("You have already claimed!");
+        toast.warn("You have already minted!");
         return;
       }
 
@@ -170,13 +175,13 @@ export default function MintButton({ check }) {
     try {
       if (!status) {
         toast.dismiss();
-        toast.error("You are not Eligible!");
+        toast.error("😦 Your wallet is not eligible for any phase!");
         return;
       }
 
       if (claimStat) {
         toast.dismiss();
-        toast.warn("You have already claimed!");
+        toast.warn("You have already minted!");
         return;
       }
 
