@@ -78,7 +78,7 @@ export default function WalletChecker() {
     if (!verifyStatus) {
       toast.dismiss();
       // setIneligible(true);
-      toast.error("😦 Your wallet is not eligible for any phase!")
+      toast.error("Your wallet is not eligible")
     } else if (stageStatus) {
       toast.dismiss();
       toast.success("You are Fruitlisted! 🎉")

@@ -7,7 +7,7 @@ import PopUp from "./PopUp";
 
 const { ethers } = require("ethers");
 
-export default function MintButton({ check }) {
+export default function MintButton({ check, onTransactionComplete }) {
   const [getTx, setTx] = useState("");
   const [popUp, setPop] = useState(false);
   const [supplyCount, setSupplyCount] = useState(5);
@@ -117,7 +117,7 @@ export default function MintButton({ check }) {
     try {
       if (!status) {
         toast.dismiss();
-        toast.error("😦 Your wallet is not eligible for any phase!");
+        toast.error("Your wallet is not eligible!");
         return;
       }
 
@@ -158,6 +158,7 @@ export default function MintButton({ check }) {
       setTx(transactionResponse.hash);
       setPop(true);
       setTotalSupply(updatedSupply);
+      onTransactionComplete(updatedSupply);
 
       return transactionResponse.hash;
     } catch (error) {
@@ -186,7 +187,7 @@ export default function MintButton({ check }) {
     try {
       if (!status) {
         toast.dismiss();
-        toast.error("😦 Your wallet is not eligible for any phase!");
+        toast.error("Your wallet is not eligible!");
         return;
       }
 
@@ -219,6 +220,7 @@ export default function MintButton({ check }) {
       setTx(transactionResponse.hash);
       setPop(true);
       setTotalSupply(updatedSupply);
+      onTransactionComplete(updatedSupply);
 
       return transactionResponse.hash;
     } catch (error) {

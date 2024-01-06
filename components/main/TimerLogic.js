@@ -4,6 +4,7 @@ import { SocialIcon } from "react-social-icons/component";
 import "react-social-icons/opensea";
 
 const TimerLogic = () => {
+  const [totalSupply, setTotalSupply] = useState(567);
   const [currentTimer, setCurrentTimer] = useState(0);
   const [countDownTime, setCountDownTime] = useState({
     days: "00",
@@ -30,6 +31,31 @@ const TimerLogic = () => {
       date: new Date("2024-01-04T23:59:59"),
     },
   ];
+
+  const fetchTotalSupply = async () => {
+    try {
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const contract = new ethers.Contract(contractAddress, abi, provider);
+      const count = await contract.totalSupply();
+      return parseInt(count);
+    } catch (error) {
+      console.error("Error fetching total supply from smart contract:", error);
+      return totalSupply;
+    }
+  };
+
+  useEffect(() => {
+    async function fetchData() {
+      const supply = await fetchTotalSupply();
+      setTotalSupply(supply);
+    }
+
+    fetchData();
+  }, []);
+
+  const handleUpdateCount = (count) => {
+    setTotalSupply(count);
+  }
 
   const getTimeDifference = useCallback(() => {
     const currentTime = new Date().getTime();
@@ -98,7 +124,7 @@ const TimerLogic = () => {
 
   return (
     <div>
-      {isCountdownCompleted && (
+      {(isCountdownCompleted || totalSupply == 786) && (
         <div className="py-[45px] md:py-[20px]">
           <span>
             <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500  text-[50px] md:text-[55px] mx-20 md:mx-20 md:pt-[50px] md:pb-[10px] hover:scale-105 cursor-pointer">
@@ -121,10 +147,11 @@ const TimerLogic = () => {
       )}
 
       <TimerUI
+        updateCount={handleUpdateCount}
         countDownTime={countDownTime}
         isMintButtonVisible={isMintButtonVisible}
         timerName={timers[currentTimer].name}
-        isVisible={new Date() < timers[currentTimer].date}
+        isVisible={new Date() < timers[currentTimer].date && totalSupply < 786}
         redirectToOpenSea={redirectToOpenSea}
       />
     </div>

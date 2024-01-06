@@ -31,7 +31,13 @@ const TimerUI = ({
   isMintButtonVisible,
   timerName,
   isVisible,
+  updateCount
 }) => {
+
+  const handleCount = (count) => {
+    updateCount(count);
+  }
+
   return (
     <div>
       {isVisible && timerName === "Mint Start" && (
@@ -81,7 +87,7 @@ const TimerUI = ({
 
       {isMintButtonVisible && isVisible && (
         <motion.div variants={slideInFromRight(0.8)} >
-          <MintButton timerName={timerName} check={timerName == "Stage 1" ? true : false} />
+          <MintButton onTransactionComplete={handleCount} timerName={timerName} check={timerName == "Stage 1" ? true : false} />
         </motion.div>
       )}
 
