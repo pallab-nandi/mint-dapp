@@ -7,15 +7,15 @@ import PopUp from "./PopUp";
 
 const { ethers } = require("ethers");
 
-export default function MintButton({ check, onTransactionComplete }) {
-  const [getTx, setTx] = useState("");
-  const [popUp, setPop] = useState(false);
+export default function MintButton({ check, onTransactionComplete, setTx, setPop }) {
+  // const [getTx, setTx] = useState("");
+  // const [popUp, setPop] = useState(false);
   const [supplyCount, setSupplyCount] = useState(5);
   const [totalSupply, setTotalSupply] = useState(supplyCount);
 
-  const handlePopUp = (bool) => {
-    setPop(bool);
-  };
+  // const handlePopUp = (bool) => {
+  //   setPop(bool);
+  // };
 
   const contractData = async () => {
     if (window.ethereum) {
@@ -258,7 +258,7 @@ export default function MintButton({ check, onTransactionComplete }) {
       <span className="text-xs lg:text-xl text-white font-semibold uppercase ">
         Mint Price : 0.2 ETH &nbsp;&nbsp; Total Supply : {totalSupply}/786
       </span>
-      {popUp && <PopUp tx={getTx} value={handlePopUp} id={totalSupply} />}
+      {/* {popUp && <PopUp tx={getTx} value={handlePopUp} id={totalSupply} />} */}
     </div>
   );
 }

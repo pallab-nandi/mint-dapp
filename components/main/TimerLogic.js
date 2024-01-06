@@ -2,9 +2,12 @@ import React, { useCallback, useEffect, useState } from "react";
 import TimerUI from "../sub/TimerUI";
 import { SocialIcon } from "react-social-icons/component";
 import "react-social-icons/opensea";
+import PopUp from "../sub/PopUp";
 
 const TimerLogic = () => {
   const [totalSupply, setTotalSupply] = useState(567);
+  const [popUp, setPop] = useState(false);
+  const [getTx, setTx] = useState("");
   const [currentTimer, setCurrentTimer] = useState(0);
   const [countDownTime, setCountDownTime] = useState({
     days: "00",
@@ -31,6 +34,17 @@ const TimerLogic = () => {
       date: new Date("2024-01-04T23:59:59"),
     },
   ];
+
+  const handlePopUp = (bool) => {
+    setPop(bool);
+  };
+
+  const handleTx = (tx) => {
+    setTx(tx);
+  }
+  const handleVisiblePopUp = (bool) => {
+    setPop(bool);
+  }
 
   const fetchTotalSupply = async () => {
     try {
@@ -123,6 +137,7 @@ const TimerLogic = () => {
   };
 
   return (
+    <>
     <div>
       {(isCountdownCompleted || totalSupply == 786) && (
         <div className="py-[45px] md:py-[20px]">
@@ -148,6 +163,8 @@ const TimerLogic = () => {
 
       <TimerUI
         updateCount={handleUpdateCount}
+        updateTx={handleTx}
+        updatePop={handleVisiblePopUp}
         countDownTime={countDownTime}
         isMintButtonVisible={isMintButtonVisible}
         timerName={timers[currentTimer].name}
@@ -155,6 +172,8 @@ const TimerLogic = () => {
         redirectToOpenSea={redirectToOpenSea}
       />
     </div>
+    {popUp && <PopUp tx={getTx} value={handlePopUp} id={totalSupply} />}
+    </>
   );
 };
 
