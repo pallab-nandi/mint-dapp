@@ -3,6 +3,8 @@ import TimerUI from "../sub/TimerUI";
 import { SocialIcon } from "react-social-icons/component";
 import "react-social-icons/opensea";
 import PopUp from "../sub/PopUp";
+import { contractAddress, abi } from "../../utils/web3/contract";
+const { ethers } = require("ethers");
 
 const TimerLogic = () => {
   const [totalSupply, setTotalSupply] = useState(567);
@@ -27,11 +29,11 @@ const TimerLogic = () => {
     },
     {
       name: "Stage 1",
-      date: new Date("2024-01-04T11:59:59"),
+      date: new Date("2024-01-15T11:59:59"),
     },
     {
       name: "Stage 2",
-      date: new Date("2024-01-04T23:59:59"),
+      date: new Date("2024-02-15T23:59:59"),
     },
   ];
 
@@ -41,10 +43,10 @@ const TimerLogic = () => {
 
   const handleTx = (tx) => {
     setTx(tx);
-  }
+  };
   const handleVisiblePopUp = (bool) => {
     setPop(bool);
-  }
+  };
 
   const fetchTotalSupply = async () => {
     try {
@@ -69,7 +71,7 @@ const TimerLogic = () => {
 
   const handleUpdateCount = (count) => {
     setTotalSupply(count);
-  }
+  };
 
   const getTimeDifference = useCallback(() => {
     const currentTime = new Date().getTime();
@@ -133,46 +135,45 @@ const TimerLogic = () => {
   }, [startCountDown]);
 
   const redirectToOpenSea = () => {
-    window.location.href = "https://opensea.io/";
+    window.location.href = "https://shorturl.at/eimtA";
   };
 
   return (
     <>
-    <div>
-      {(isCountdownCompleted || totalSupply == 786) && (
-        <div className="py-[45px] md:py-[20px]">
-          <span>
-            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500  text-[50px] md:text-[55px] mx-20 md:mx-20 md:pt-[50px] md:pb-[10px] hover:scale-105 cursor-pointer">
-              Sold out!
-            </h1>
-          </span>
-          <button
-            onClick={redirectToOpenSea}
-            className="button cursor-pointer mt-1 mb-3 inline-block w-full
+      <div>
+        {(isCountdownCompleted || totalSupply == 786) && (
+          <div className="py-[45px] md:py-[20px]">
+            <span>
+              <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500  text-[50px] md:text-[55px] mx-20 md:mx-20 md:pt-[50px] md:pb-[10px] hover:scale-105 cursor-pointer">
+                Sold out!
+              </h1>
+            </span>
+            <button
+              onClick={redirectToOpenSea}
+              className="button cursor-pointer mt-1 mb-3 inline-block w-full
             bg-white py-2 text-lg font-bold uppercase tracking-widest
             text-black rounded-lg hover:scale-105"
-          >
-            View on&nbsp;&nbsp;
-            <SocialIcon
-              network="opensea"
-              style={{ height: 40, width: 40 }}
-            />
-          </button>
-        </div>
-      )}
+            >
+              View on&nbsp;&nbsp;
+              <SocialIcon network="opensea" style={{ height: 40, width: 40 }} />
+            </button>
+          </div>
+        )}
 
-      <TimerUI
-        updateCount={handleUpdateCount}
-        updateTx={handleTx}
-        updatePop={handleVisiblePopUp}
-        countDownTime={countDownTime}
-        isMintButtonVisible={isMintButtonVisible}
-        timerName={timers[currentTimer].name}
-        isVisible={new Date() < timers[currentTimer].date && totalSupply < 786}
-        redirectToOpenSea={redirectToOpenSea}
-      />
-    </div>
-    {popUp && <PopUp tx={getTx} value={handlePopUp} id={totalSupply} />}
+        <TimerUI
+          updateCount={handleUpdateCount}
+          updateTx={handleTx}
+          updatePop={handleVisiblePopUp}
+          countDownTime={countDownTime}
+          isMintButtonVisible={isMintButtonVisible}
+          timerName={timers[currentTimer].name}
+          isVisible={
+            new Date() < timers[currentTimer].date && totalSupply < 786
+          }
+          redirectToOpenSea={redirectToOpenSea}
+        />
+      </div>
+      {popUp && <PopUp tx={getTx} value={handlePopUp} id={totalSupply} />}
     </>
   );
 };
