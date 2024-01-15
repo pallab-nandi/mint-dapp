@@ -33,7 +33,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
 
         if (balanceInEth < 0.2) {
           toast.dismiss();
-          toast.warning("Not enough fund for Mint!");
+          toast.warning("Insufficient Funds!");
           return [];
         }
 

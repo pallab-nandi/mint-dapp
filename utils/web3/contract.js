@@ -1,4 +1,4 @@
-const contractAddress = "0xC4Fd941b47Cb69b9e77a8D22641B7C1d95dC2836";
+const contractAddress = "0x3a723a54e365E7F1F86679364E66cFD0a3c55f61";
 
 const abi = [
   {
@@ -16,17 +16,6 @@ const abi = [
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-      }
-    ],
-    "name": "OperatorNotAllowed",
-    "type": "error"
   },
   {
     "anonymous": false,
@@ -254,11 +243,30 @@ const abi = [
     "inputs": [
       {
         "internalType": "address",
-        "name": "_address",
+        "name": "",
         "type": "address"
       }
     ],
-    "name": "checkBlacklist",
+    "name": "blacklist",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "blockMarketplaces",
     "outputs": [
       {
         "internalType": "bool",
@@ -436,19 +444,6 @@ const abi = [
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address[]",
-        "name": "_walletlist",
-        "type": "address[]"
-      }
-    ],
-    "name": "removeBlacklist",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "renounceOwnership",
     "outputs": [],
@@ -582,12 +577,35 @@ const abi = [
   {
     "inputs": [
       {
-        "internalType": "address[]",
+        "internalType": "address",
         "name": "_walletlist",
-        "type": "address[]"
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
       }
     ],
     "name": "setBlacklist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
+    ],
+    "name": "setBlockMarketplace",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -609,7 +627,7 @@ const abi = [
     "inputs": [
       {
         "internalType": "bool",
-        "name": "_event",
+        "name": "approved",
         "type": "bool"
       }
     ],
@@ -870,6 +888,7 @@ const stageOne = [
   '0x22f2c8b14e2859f82455b22dba32ef9b1db2eebf',
   '0xb332ddb195e69155da699ca8b17a8bb49c10e4ed',
   '0xf3b0c5a496cc24ddc2e3db0afe4f43b9b787566f',
+  '0x5e721c67b54a789cfd682e5a39bd31230593ce9d',
 ]
 
 const stageTwo = [
@@ -882,7 +901,8 @@ const stageTwo = [
   '0xf1ec5972b311ec2d19d58bdb54888e6c4ac3cd18',
   '0x1f8da6700699c192a3efa3478d6d764061a8218d',
   '0xb2ceab7491c0931b4ac1cb05b7637893e9c29dcd',
-  '0x2c2dc62c19604381706c8f40a300b8f5204d5a36'
+  '0x2c2dc62c19604381706c8f40a300b8f5204d5a36',
+  '0x7979692bdc83da4de3b96034e35ea03c32da175f'
 ]
 
 module.exports = { contractAddress, abi, stageOne, stageTwo }
