@@ -1,4 +1,4 @@
-const contractAddress = "0x3a723a54e365E7F1F86679364E66cFD0a3c55f61";
+const contractAddress = "0x6bE1bc5186E514F21D50cA1D8c527fF5B248189b";
 
 const abi = [
   {
@@ -180,7 +180,7 @@ const abi = [
     "inputs": [
       {
         "internalType": "address[]",
-        "name": "_reservelist",
+        "name": "_to",
         "type": "address[]"
       }
     ],
@@ -578,7 +578,7 @@ const abi = [
     "inputs": [
       {
         "internalType": "address",
-        "name": "_walletlist",
+        "name": "wallet",
         "type": "address"
       },
       {
