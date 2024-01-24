@@ -1,9 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-} from "../../utils/motion";
+import { slideInFromLeft, slideInFromRight } from "../../utils/motion";
 import Image from "next/image";
 import TimerLogic from "../main/TimerLogic";
 import ScrollDown from "./ScrollDown";
@@ -35,19 +32,26 @@ const HeroContent = () => {
         >
           <TimerLogic />
         </motion.div>
-        <ScrollDown/>
+        <ScrollDown />
       </div>
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full md:w-1/2 flex justify-center items-center"
+        className="w-full h-full md:w-44 lg:w-1/2 flex justify-center items-center"
       >
         <Image
-          src="/mainIconsdark.svg"
+          src="/Asset11.png"
           alt="work icons"
-          height={600}
-          width={600}
-          className="hover:scale-105 max-h-30 max-w-30 md:max-h-full md:max-w-full py-10 "
+          height={400}
+          width={400}
+          className="max-h-30 max-w-30 md:max-h-full md:max-w-full py-10 md:pb-96  lg:py-10 animate-bounce "
+        />
+        <Image
+          src="/Asset2e.png"
+          alt="work icons"
+          height={270}
+          width={270}
+          className="max-h-50 max-w-30 md:max-h-full md:max-w-0 lg:max-w-full pb-96"
         />
       </motion.div>
     </motion.div>
