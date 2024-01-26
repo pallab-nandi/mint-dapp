@@ -8,7 +8,7 @@ const Footer = () => {
         </div>
 
         <div className="mb-[5px] mt-10 text-[15px] text-center">
-          Copyright &copy; NFT Friends Alpha 2024
+          Copyright &copy; NFT Friends Alpha 2024 | Powered by PANDA 🐼.
         </div>
       </div>
     </div>
