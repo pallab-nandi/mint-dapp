@@ -84,7 +84,7 @@ export default function PopUp({ tx, value, id }) {
 
                       <a
                         className="button cursor-pointer mt-1 mb-3 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
-                        href={() => utils.opensea_url(contractAddress, id)}
+                        href={utils.opensea_view_url(contractAddress, id)}
                         target="_blank"
                       >
                         View on&nbsp;&nbsp;
@@ -96,7 +96,7 @@ export default function PopUp({ tx, value, id }) {
 
                       <a
                         className="sm:text-large mt-5 underline text-gray-900"
-                        href={() => utils.etherscan_view_url(tx)}
+                        href={utils.etherscan_view_url(tx)}
                         target="_blank"
                       >
                         View on Etherscan
