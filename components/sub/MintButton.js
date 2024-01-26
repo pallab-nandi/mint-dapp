@@ -60,7 +60,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
 
   const fetchTotalSupply = async () => {
     try {
-      const provider = new ethers.BrowserProvider(window.ethereum);
+      const provider = new ethers.JsonRpcProvider("https://rpc.sepolia.org")
       const contract = new ethers.Contract(contractAddress, abi, provider);
       const count = await contract.totalSupply();
       return parseInt(count);

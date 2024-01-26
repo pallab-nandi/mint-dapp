@@ -40,17 +40,17 @@ const HeroContent = () => {
         className="w-full h-full md:w-44 lg:w-1/2 flex justify-center items-center"
       >
         <Image
-          src="/Asset11.png"
+          src="/Asset1.png"
           alt="work icons"
-          height={400}
-          width={400}
+          height={340}
+          width={340}
           className="max-h-30 max-w-30 md:max-h-full md:max-w-full py-10 md:pb-96  lg:py-10 animate-bounce "
         />
         <Image
-          src="/Asset2e.png"
+          src="/Asset2.png"
           alt="work icons"
-          height={270}
-          width={270}
+          height={200}
+          width={200}
           className="max-h-50 max-w-30 md:max-h-full md:max-w-0 lg:max-w-full pb-96"
         />
       </motion.div>
