@@ -4,6 +4,8 @@ import { SocialIcon } from "react-social-icons/component";
 import "react-social-icons/opensea";
 import PopUp from "../sub/PopUp";
 import { contractAddress, abi } from "../../utils/web3/contract";
+import { utils } from "../../constants/index";
+
 const { ethers } = require("ethers");
 
 const TimerLogic = () => {
@@ -50,7 +52,7 @@ const TimerLogic = () => {
 
   const fetchTotalSupply = async () => {
     try {
-      const provider = new ethers.BrowserProvider(window.ethereum);
+      const provider = new ethers.BrowserProvider(utils.rpc_url);
       const contract = new ethers.Contract(contractAddress, abi, provider);
       const count = await contract.totalSupply();
       return parseInt(count);
@@ -135,7 +137,7 @@ const TimerLogic = () => {
   }, [startCountDown]);
 
   const redirectToOpenSea = () => {
-    window.location.href = "https://shorturl.at/eimtA";
+    window.location.href = utils.opensea_url;
   };
 
   return (

@@ -2,20 +2,15 @@ import React, { useEffect, useState } from "react";
 import { contractAddress, abi } from "../../utils/web3/contract";
 import { addressProof } from "../../utils/web3/merkleTree";
 import { toast } from "react-toastify";
-import { stageChecker } from "../../utils/web3/stageChecker";
-import PopUp from "./PopUp";
+import { stageChecker, allowListChecker } from "../../utils/web3/stageChecker";
+import { utils } from "../../constants/index";
 
 const { ethers } = require("ethers");
 
 export default function MintButton({ check, onTransactionComplete, setTx, setPop }) {
-  // const [getTx, setTx] = useState("");
-  // const [popUp, setPop] = useState(false);
-  const [supplyCount, setSupplyCount] = useState(5);
-  const [totalSupply, setTotalSupply] = useState(supplyCount);
 
-  // const handlePopUp = (bool) => {
-  //   setPop(bool);
-  // };
+  // const [supplyCount, setSupplyCount] = useState(567);
+  const [totalSupply, setTotalSupply] = useState(567);
 
   const contractData = async () => {
     if (window.ethereum) {
@@ -60,7 +55,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
 
   const fetchTotalSupply = async () => {
     try {
-      const provider = new ethers.JsonRpcProvider("https://rpc.sepolia.org")
+      const provider = new ethers.JsonRpcProvider(utils.rpc_url);
       const contract = new ethers.Contract(contractAddress, abi, provider);
       const count = await contract.totalSupply();
       return parseInt(count);
@@ -79,15 +74,15 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
     fetchData();
   }, []);
 
-  const verify = async (accounts) => {
-    const proof = await addressProof(accounts);
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const contract = new ethers.Contract(contractAddress, abi, provider);
+  // const verify = async (accounts) => {
+  //   const proof = await addressProof(accounts);
+  //   const provider = new ethers.BrowserProvider(window.ethereum);
+  //   const contract = new ethers.Contract(contractAddress, abi, provider);
 
-    const status = await contract.verifyWhitelist(accounts, proof);
+  //   const status = await contract.verifyWhitelist(accounts, proof);
 
-    return status;
-  };
+  //   return status;
+  // };
 
   const _claimStatus = async (accounts) => {
     const provider = new ethers.BrowserProvider(window.ethereum);
@@ -109,7 +104,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
 
     const proof = await addressProof(address);
 
-    let status = await verify(address);
+    let status = await allowListChecker(address);
     let claimStat = await _claimStatus(address);
     let supply = await fetchTotalSupply();
     let stageVerify = await stageChecker(address);
@@ -154,7 +149,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
       toast.success("Transaction Done!");
 
       const updatedSupply = await fetchTotalSupply();
-      setSupplyCount((prevCount) => prevCount + 1);
+      // setSupplyCount((prevCount) => prevCount + 1);
       setTx(transactionResponse.hash);
       setPop(true);
       setTotalSupply(updatedSupply);
@@ -180,7 +175,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
 
     const proof = await addressProof(address);
 
-    let status = await verify(address);
+    let status = await allowListChecker(address);
     let claimStat = await _claimStatus(address);
     let supply = await fetchTotalSupply();
 
@@ -216,7 +211,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
       toast.success("Transaction Done!");
 
       const updatedSupply = await fetchTotalSupply();
-      setSupplyCount((prevCount) => prevCount + 1);
+      // setSupplyCount((prevCount) => prevCount + 1);
       setTx(transactionResponse.hash);
       setPop(true);
       setTotalSupply(updatedSupply);

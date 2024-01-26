@@ -1,21 +1,11 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-// import { contractAddress, abi } from "../../utils/web3/contract";
 import { allowListChecker, stageChecker } from "../../utils/web3/stageChecker";
-// import StageOne from "../status/StageOne";
-// import StageTwo from "../status/StageTwo";
-// import Claimed from "../status/Claimed";
-// import Ineligible from "../status/Ineligible";
 
 const { ethers } = require("ethers");
 
 export default function WalletChecker() {
   const [inputValue, setInputValue] = useState("");
-
-  // const [stageOne, setStageOne] = useState(false);
-  // const [stageTwo, setStageTwo] = useState(false);
-  // const [claimed, setClaimed] = useState(false);
-  // const [ineligible, setIneligible] = useState(false);
 
   const handleSubmit = () => {
     walletCheck(inputValue);
@@ -24,13 +14,6 @@ export default function WalletChecker() {
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
-
-  // const handlePopUp = (bool) => {
-  //   setIneligible(bool);
-  //   setStageOne(bool);
-  //   setStageTwo(bool);
-  //   setClaimed(bool);
-  // };
 
   const validateAddress = (accounts) => {
     // Ethereum address regular expression pattern
@@ -42,15 +25,6 @@ export default function WalletChecker() {
     // Update the state to reflect the validation result
     return isValidAddress;
   };
-
-  // const _claimStatus = async (accounts) => {
-  //   const provider = new ethers.BrowserProvider(window.ethereum);
-  //   // const signer = provider.getSigner();
-  //   const contract = new ethers.Contract(contractAddress, abi, provider);
-
-  //   const status = await contract.checkStatus(accounts);
-  //   return status;
-  // };
 
   async function walletCheck(address) {
     toast.loading("Checking Initialized...");
@@ -123,10 +97,6 @@ export default function WalletChecker() {
           Verify
         </button>
       </div>
-      {/* {stageOne && <StageOne value={handlePopUp} />}
-      {stageTwo && <StageTwo value={handlePopUp} />}
-      {claimed && <Claimed value={handlePopUp} />}
-      {ineligible && <Ineligible value={handlePopUp} />} */}
     </>
   );
 }

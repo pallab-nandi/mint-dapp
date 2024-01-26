@@ -5,7 +5,8 @@ import { SocialIcon } from "react-social-icons/component";
 import "react-social-icons/x";
 import "react-social-icons/discord";
 import "react-social-icons/opensea";
-import { contractAddress } from "../../utils/web3/contract"
+import { contractAddress } from "../../utils/web3/contract";
+import {utils} from "../../constants/index";
 
 export default function PopUp({ tx, value, id }) {
   const [open, setOpen] = useState(true);
@@ -71,7 +72,7 @@ export default function PopUp({ tx, value, id }) {
                       </h2>
                       <a
                         className="button cursor-pointer mt-3 mb-1 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
-                        href="https://bit.ly/3Slgu7r"
+                        href={utils.twitter_url}
                         target="_blank"
                       >
                         Share on
@@ -83,7 +84,7 @@ export default function PopUp({ tx, value, id }) {
 
                       <a
                         className="button cursor-pointer mt-1 mb-3 inline-block w-full bg-black py-2 text-sm font-bold uppercase tracking-widest text-white"
-                        href={`https://testnets.opensea.io/assets/sepolia/${contractAddress}/${id - 1}`}
+                        href={() => utils.opensea_url(contractAddress, id)}
                         target="_blank"
                       >
                         View on&nbsp;&nbsp;
@@ -95,7 +96,7 @@ export default function PopUp({ tx, value, id }) {
 
                       <a
                         className="sm:text-large mt-5 underline text-gray-900"
-                        href={`https://sepolia.etherscan.io/tx/${tx}`}
+                        href={() => utils.etherscan_view_url(tx)}
                         target="_blank"
                       >
                         View on Etherscan
