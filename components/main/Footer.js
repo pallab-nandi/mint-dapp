@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
         </div>
 
-        <div className="mb-[5px] mt-10 text-[15px] text-center">
+        <div className="mb-[5px] mt-12 text-[15px] text-center">
           Copyright &copy; NFT Friends Alpha 2024 | Powered by PANDA 🐼.
         </div>
       </div>
