@@ -27,16 +27,16 @@ const TimerLogic = () => {
   const timers = [
     {
       name: "Mint Start",
-      date: new Date(Date.UTC(2024, 0, 26, 16, 0, 0)),
+      date: new Date(Date.UTC(2024, 0, 31, 13, 0, 0)),
       //syntax format:(Year, Month-1, date, hours, minutes, seconds)
     },
     {
       name: "Stage 1",
-      date: new Date(Date.UTC(2024, 0, 31, 3, 4, 5)),
+      date: new Date(Date.UTC(2024, 1, 1, 13, 0, 0)),
     },
     {
       name: "Stage 2",
-      date: new Date(Date.UTC(2024, 0, 31, 3, 4, 5)),
+      date: new Date(Date.UTC(2024, 1, 2, 13, 0, 0)),
     },
   ];
 
