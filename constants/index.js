@@ -8,7 +8,7 @@ export const Socials = [
   {
     name: "Discord",
     src: "/discord.svg",
-    link: "https://discord.com/invite/TrGWEQFY8U",
+    link: "https://discord.gg/nftfriendsalpha",
   }
 ];
 
