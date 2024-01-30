@@ -40,7 +40,7 @@ export default function WalletChecker() {
     if (!validWalletAddress) {
       toast.dismiss();
       toast.error(
-        "Invalid Wallet Address! Please enter a correct wallet address."
+        "Invalid Wallet Address!"
       );
       return;
     }

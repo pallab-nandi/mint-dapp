@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { contractAddress, abi } from "../../utils/web3/contract";
-import { addressProof } from "../../utils/web3/merkleTree";
+import { addressProof_phaseOne, addressProof_phaseTwo } from "../../utils/web3/merkleTree";
 import { toast } from "react-toastify";
 import { stageChecker, allowListChecker } from "../../utils/web3/stageChecker";
 import { utils } from "../../constants/index";
@@ -102,7 +102,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
     const contract = data[0];
     const address = data[1];
 
-    const proof = await addressProof(address);
+    const proof = await addressProof_phaseOne(address);
 
     let status = await allowListChecker(address);
     let claimStat = await _claimStatus(address);
@@ -173,7 +173,7 @@ export default function MintButton({ check, onTransactionComplete, setTx, setPop
     const contract = data[0];
     const address = data[1];
 
-    const proof = await addressProof(address);
+    const proof = await addressProof_phaseTwo(address);
 
     let status = await allowListChecker(address);
     let claimStat = await _claimStatus(address);
