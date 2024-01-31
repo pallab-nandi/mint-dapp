@@ -1,3 +1,4 @@
+import { ethers } from "ethers"
 import { useEffect } from "react"
 import { useMoralis } from "react-moralis"
 
@@ -491,6 +492,21 @@ export default function WalletConnect() {
               if (typeof window !== "undefined") {
                 window.localStorage.setItem("connected", "injected")
                 // window.localStorage.setItem("connected", "walletconnect")
+              }
+
+              const ethersProvider = new ethers.BrowserProvider(window.ethereum);
+
+              const network = await ethersProvider.getNetwork();
+              try {
+                if (network.name !== "mainnet") {
+                  await ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: '0x1' }], // Mainnet Chain ID: 0x1
+                  });
+                  console.log('Switched to Mainnet.');
+                }
+              } catch (err) {
+                console.error('Error switching to Mainnet:', err);
               }
             }
           }}
