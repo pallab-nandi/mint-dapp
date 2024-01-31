@@ -32,11 +32,11 @@ const TimerLogic = () => {
     },
     {
       name: "Stage 1",
-      date: new Date(Date.UTC(2024, 1, 1, 13, 0, 0)),
+      date: new Date(Date.UTC(2024, 1, 1, 13, 0, 0)), // February 1, 2024 - UTC 1 PM
     },
     {
       name: "Stage 2",
-      date: new Date(Date.UTC(2024, 1, 2, 13, 0, 0)),
+      date: new Date(Date.UTC(2024, 1, 1, 15, 0, 0)), // February 1, 2024 - UTC 3 PM
     },
   ];
 
