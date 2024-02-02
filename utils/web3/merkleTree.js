@@ -21,6 +21,7 @@ const leaves_phaseTwo = whiteList_phaseTwo.map(x => Buffer.from(keccak256(x)).to
 const tree_phaseOne = new MerkleTree(leaves_phaseOne, keccak256, { sortPairs: true });
 const tree_phaseTwo = new MerkleTree(leaves_phaseTwo, keccak256, { sortPairs: true });
 
+// console.log(tree_phaseTwo.getHexRoot());
 
 export const addressProof_phaseOne = (address) => {
   const leaf = keccak256(address);

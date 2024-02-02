@@ -36,7 +36,7 @@ const TimerLogic = () => {
     },
     {
       name: "Stage 2",
-      date: new Date(Date.UTC(2024, 1, 2, 15, 0, 0)), // February 2, 2024 - UTC 3 PM
+      date: new Date(Date.UTC(2024, 1, 3, 13, 0, 0)), // February 3, 2024 - UTC 1 PM
     },
   ];
 
