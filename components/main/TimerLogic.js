@@ -148,7 +148,7 @@ const TimerLogic = () => {
           <div className="py-[45px] md:py-[20px]">
             <span>
               <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500  text-[50px] md:text-[55px] mx-20 md:mx-20 md:pt-[50px] md:pb-[10px] hover:scale-105 cursor-pointer">
-                Sold out!
+                Mint Ended
               </h1>
             </span>
             <button
